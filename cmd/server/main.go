@@ -11,10 +11,8 @@ import (
 )
 
 func main() {
-	// Caminho para o arquivo .env
 	envPath := filepath.Join("..", "..", ".env")
 
-	// Carregar variáveis de ambiente do arquivo .env
 	if err := godotenv.Load(envPath); err != nil {
 		fmt.Println("Erro ao carregar .env")
 	}
