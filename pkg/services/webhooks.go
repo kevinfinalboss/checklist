@@ -5,17 +5,28 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+
+	"github.com/kevinfinalboss/checklist-apps/pkg/models"
 )
 
 type DiscordWebhook struct {
-	Content string `json:"content"`
+	Embeds []models.Embed `json:"embeds"`
 }
 
-func SendDiscordWebhook(message string) error {
+func SendDiscordWebhook(title, description string) error {
 	webhookURL := "https://discord.com/api/webhooks/1103840164062707762/hmu05z5RrS4ya4QTHBKT7XxSaCfS1JxoACWZ750lzje0sZpejBY_6tu0AzK1pAshzJ4m"
 
+	embed := models.Embed{
+		Title:       title,
+		Description: description,
+		Color:       16711680,
+		Footer: &models.Footer{
+			Text: "CheckList API - Error Notifier",
+		},
+	}
+
 	payload := DiscordWebhook{
-		Content: message,
+		Embeds: []models.Embed{embed},
 	}
 
 	jsonPayload, err := json.Marshal(payload)
