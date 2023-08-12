@@ -11,6 +11,9 @@ func SetupRouter() *gin.Engine {
 	r.Use(middlewares.ErrorHandler())
 
 	r.GET("/diag/health", controllers.HealthCheck)
+	r.GET("/test/panic", func(c *gin.Context) {
+		panic("Isso é um teste de pânico!")
+	})
 
 	return r
 }
