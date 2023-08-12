@@ -1,6 +1,6 @@
 schema:
   - name: checklist-apps
-    path: .
+    path: ./
     commands:
       run:
         status: true
