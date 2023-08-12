@@ -32,7 +32,7 @@ func main() {
 
 	port := os.Getenv("PORT")
 	if port == "" {
-		color.Yellow("PORT não definida no .env, usando 8080 como padrão")
+		color.Yellow("PORT não definida no .env, usando 8080 como padrão.")
 		port = "8080"
 	}
 
