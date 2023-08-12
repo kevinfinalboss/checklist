@@ -21,7 +21,9 @@ func ErrorHandler() gin.HandlerFunc {
 					fmt.Println("Erro ao enviar e-mail:", emailErr)
 				}
 
-				if webhookErr := services.SendDiscordWebhook(errMsg); webhookErr != nil {
+				title := "Erro Interno no Servidor"
+				description := "Ocorreu um erro no servidor: " + errMsg
+				if webhookErr := services.SendDiscordWebhook(title, description); webhookErr != nil {
 					fmt.Println("Erro ao enviar webhook:", webhookErr)
 				}
 
