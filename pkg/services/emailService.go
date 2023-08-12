@@ -18,13 +18,7 @@ func SendEmail(subject, errorMessage string) error {
 	smtpHost := os.Getenv("SMTP_HOST")
 	smtpPort := os.Getenv("SMTP_PORT")
 
-	dir, err := os.Getwd()
-	if err != nil {
-		fmt.Println("Erro ao obter diretório atual:", err)
-		return err
-	}
-
-	templatePath := filepath.Join(dir, "..", "..", "templates", "error.html")
+	templatePath := filepath.Join("templates", "error.html")
 
 	tmpl, err := template.ParseFiles(templatePath)
 	if err != nil {
