@@ -1,0 +1,11 @@
+schema:
+  - name: checklist-apps
+    path: .
+    commands:
+      run:
+        status: true
+    watcher:
+      paths:
+        - /
+      extensions:
+        - go
