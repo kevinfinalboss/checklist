@@ -4,12 +4,14 @@ import (
 	"fmt"
 	"net/smtp"
 	"os"
+
+	"github.com/spf13/viper"
 )
 
 func SendEmail(subject, body string) error {
-	from := os.Getenv("SMTP_FROM")
+	from := viper.GetString("smtp.from")
 	password := os.Getenv("SMTP_PASSWORD")
-	to := os.Getenv("SMTP_USERNAME")
+	to := viper.GetString("smtp.to")
 	smtpHost := os.Getenv("SMTP_HOST")
 	smtpPort := os.Getenv("SMTP_PORT")
 
