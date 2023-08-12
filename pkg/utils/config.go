@@ -6,7 +6,7 @@ import (
 
 func LoadConfig() error {
 	viper.SetConfigName("config")
-	viper.AddConfigPath("../../configs")
+	viper.AddConfigPath("./configs")
 
 	if err := viper.ReadInConfig(); err != nil {
 		return err
