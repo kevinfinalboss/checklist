@@ -1,4 +1,4 @@
-MAIN=cmd/server/main.go
+MAIN=main.go
 MEMORY=512
 VERSION=recommended
 DISPLAY_NAME=checklist-apps
