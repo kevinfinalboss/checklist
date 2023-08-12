@@ -8,6 +8,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 	"github.com/kevinfinalboss/checklist-apps/api/client"
+	"github.com/kevinfinalboss/checklist-apps/router"
 )
 
 func main() {
@@ -20,7 +21,7 @@ func main() {
 	ginMode := os.Getenv("GIN_MODE")
 	gin.SetMode(ginMode)
 
-	r := gin.Default()
+	r := router.SetupRouter()
 
 	port := os.Getenv("PORT")
 	if port == "" {
