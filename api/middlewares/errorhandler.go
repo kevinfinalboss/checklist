@@ -3,6 +3,7 @@ package middlewares
 import (
 	"fmt"
 	"net/http"
+	"runtime/debug"
 
 	"github.com/gin-gonic/gin"
 	"github.com/kevinfinalboss/checklist-apps/pkg/services"
@@ -12,20 +13,16 @@ func ErrorHandler() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		defer func() {
 			if err := recover(); err != nil {
-				errMsg := fmt.Sprintf("ERROR recovered: %v", err)
-				fmt.Println(errMsg)
+				stackTrace := string(debug.Stack())
+				errMsg := fmt.Sprintf("ERROR recovered: %v\n%s", err, stackTrace)
 
 				subject := "Erro Interno no Servidor"
 				body := "Ocorreu um erro no servidor: " + errMsg
-				if emailErr := services.SendEmail(subject, body); emailErr != nil {
-					fmt.Println("Erro ao enviar e-mail:", emailErr)
-				}
+				services.SendEmail(subject, body)
 
 				title := "Erro Interno no Servidor"
 				description := "Ocorreu um erro no servidor: " + errMsg
-				if webhookErr := services.SendDiscordWebhook(title, description); webhookErr != nil {
-					fmt.Println("Erro ao enviar webhook:", webhookErr)
-				}
+				services.SendDiscordWebhook(title, description)
 
 				c.JSON(http.StatusInternalServerError, gin.H{
 					"status": http.StatusInternalServerError,
