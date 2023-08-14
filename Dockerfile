@@ -15,13 +15,14 @@ RUN apk --no-cache add ca-certificates
 
 COPY --from=builder /app/checklist-apps /checklist-apps
 
-
 COPY configs /app/configs
 COPY templates /app/templates
 
 ENV PORT=80
 
 EXPOSE 80
+
+VOLUME /app/logs
 
 HEALTHCHECK --interval=30s --timeout=5s --start-period=5s --retries=3 CMD [ "wget", "-q", "http://localhost:80/diag/health", "-O", "/dev/null" ] || exit 1
 
