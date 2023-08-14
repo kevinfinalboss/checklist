@@ -2,3 +2,4 @@ smtp:
   from: noreply@kevindev.com.br
   to: kevinmg50@gmail.com
   host: smtp.hostinger.com
+  port: 587
