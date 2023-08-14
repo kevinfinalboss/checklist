@@ -3,6 +3,7 @@ package connection
 import (
 	"context"
 	"errors"
+	"net"
 	"os"
 	"time"
 
@@ -20,8 +21,13 @@ func Connect() error {
 		return errors.New("MONGO_URL não definida no .env")
 	}
 
-	clientOptions := options.Client().ApplyURI(mongoURL)
-	clientOptions.SetMaxPoolSize(50)
+	dialer := &net.Dialer{}
+	dialer.Timeout = 10 * time.Second
+
+	clientOptions := options.Client().
+		ApplyURI(mongoURL).
+		SetMaxPoolSize(50).
+		SetDialer(dialer)
 
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
