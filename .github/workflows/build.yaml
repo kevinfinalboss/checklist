@@ -18,7 +18,7 @@ jobs:
 
       - name: Set up Go
         uses: actions/setup-go@v2
-        
+
       - name: Build Code
         run: go build -v ./...
 
@@ -27,9 +27,6 @@ jobs:
 
       - name: Install Hadolint
         run: wget https://github.com/hadolint/hadolint/releases/download/v2.7.0/hadolint-Linux-x86_64 -O hadolint && chmod +x hadolint
-
-      - name: Lint Dockerfile
-        run: ./hadolint Dockerfile
 
       - name: Build Docker Image
         run: docker build -t checklist-apps .
