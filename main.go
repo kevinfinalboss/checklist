@@ -29,6 +29,7 @@ func main() {
 
 	ginMode := os.Getenv("GIN_MODE")
 	gin.SetMode(ginMode)
+	gin.DefaultWriter = utils.Logger.Out
 
 	r := router.SetupRouter()
 
