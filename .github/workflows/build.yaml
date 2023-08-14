@@ -1,0 +1,37 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.20
+
+      - name: Build Code
+        run: go build -v ./...
+
+      - name: Run Tests
+        run: go test -v ./...
+
+      - name: Install Hadolint
+        run: wget https://github.com/hadolint/hadolint/releases/download/v2.7.0/hadolint-Linux-x86_64 -O hadolint && chmod +x hadolint
+
+      - name: Lint Dockerfile
+        run: ./hadolint Dockerfile
+
+      - name: Build Docker Image
+        run: docker build -t checklist-apps .
