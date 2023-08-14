@@ -9,6 +9,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 	"github.com/kevinfinalboss/checklist-apps/api/client"
+	connection "github.com/kevinfinalboss/checklist-apps/pkg/database"
 	"github.com/kevinfinalboss/checklist-apps/pkg/utils"
 	"github.com/kevinfinalboss/checklist-apps/router"
 )
@@ -46,6 +47,12 @@ func main() {
 			color.Red("Erro ao iniciar o servidor: %v", err)
 		}
 	}()
+
+	if err := connection.Connect(); err != nil {
+		color.Red("Erro ao conectar ao MongoDB: %v", err)
+		return
+	}
+	defer connection.Disconnect()
 
 	color.Green("Servidor rodando na porta %s", port)
 
