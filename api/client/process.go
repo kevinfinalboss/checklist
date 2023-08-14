@@ -1,10 +1,11 @@
 package client
 
 import (
-	"fmt"
 	"os"
 	"os/signal"
 	"syscall"
+
+	"github.com/kevinfinalboss/checklist-apps/pkg/utils"
 )
 
 func HandleShutdown() {
@@ -13,6 +14,6 @@ func HandleShutdown() {
 
 	<-shutdown
 
-	fmt.Println("\nDesligando o servidor...")
-	fmt.Println("Servidor desligado com sucesso.")
+	utils.Logger.Info("\nDesligando o servidor...")
+	utils.Logger.Info("Servidor desligado com sucesso.")
 }

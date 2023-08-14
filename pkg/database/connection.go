@@ -6,7 +6,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/fatih/color"
+	"github.com/kevinfinalboss/checklist-apps/pkg/utils"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"go.mongodb.org/mongo-driver/mongo/readpref"
@@ -37,13 +37,13 @@ func Connect() error {
 	}
 
 	Client = client
-	color.Green("Conectado ao MongoDB com sucesso!")
+	utils.Logger.Info("Conectado ao MongoDB com sucesso!")
 	return nil
 }
 
 func Disconnect() {
 	if Client != nil {
 		Client.Disconnect(context.Background())
-		color.Green("Desconectado do MongoDB com sucesso!")
+		utils.Logger.Info("Desconectado do MongoDB com sucesso!")
 	}
 }

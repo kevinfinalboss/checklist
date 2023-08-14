@@ -7,6 +7,7 @@ import (
 	"net/http"
 
 	"github.com/kevinfinalboss/checklist-apps/pkg/models"
+	"github.com/kevinfinalboss/checklist-apps/pkg/utils"
 )
 
 type DiscordWebhook struct {
@@ -31,23 +32,23 @@ func SendDiscordWebhook(title, description string) error {
 
 	jsonPayload, err := json.Marshal(payload)
 	if err != nil {
-		fmt.Println("Error marshaling payload:", err)
+		utils.Logger.Error("Erro no payload:", err)
 		return err
 	}
 
 	resp, err := http.Post(webhookURL, "application/json", bytes.NewBuffer(jsonPayload))
 	if err != nil {
-		fmt.Println("Error sending webhook:", err)
+		utils.Logger.Error("Error ao enviar mensagem ao webhook:", err)
 		return err
 	}
 
 	defer resp.Body.Close()
 
 	if resp.StatusCode != http.StatusOK && resp.StatusCode != http.StatusNoContent {
-		fmt.Println("Error response from Discord:", resp.Status)
-		return fmt.Errorf("Error response from Discord: %s", resp.Status)
+		utils.Logger.Error("Resposta de erro do Discord:", resp.Status)
+		return fmt.Errorf("Resposta de erro do Discord: %s", resp.Status)
 	}
 
-	fmt.Println("Discord webhook sent successfully")
+	fmt.Println("Discord webhook enviada com sucesso")
 	return nil
 }

@@ -15,14 +15,15 @@ import (
 )
 
 func main() {
+	utils.InitLogger()
 	envPath := filepath.Join(".env")
 
 	if err := godotenv.Load(envPath); err != nil {
-		color.Red("Erro ao carregar .env")
+		utils.LogError(err, "Erro ao carregar .env")
 	}
 
 	if err := utils.LoadConfig(); err != nil {
-		color.Red("Erro ao carregar configurações: %v", err)
+		utils.LogError(err, "Erro ao carregar configurações")
 		return
 	}
 
@@ -40,21 +41,21 @@ func main() {
 	asciiFigure := figure.NewFigure("CheckList", "", true)
 	asciiFigure.Print()
 
-	color.Cyan("Iniciando o servidor na porta %s...", port)
+	utils.Logger.Infof("Iniciando o servidor na porta %s...", port)
 
 	go func() {
 		if err := r.Run(":" + port); err != nil {
-			color.Red("Erro ao iniciar o servidor: %v", err)
+			utils.LogError(err, "Erro ao iniciar o servidor")
 		}
 	}()
 
 	if err := connection.Connect(); err != nil {
-		color.Red("Erro ao conectar ao MongoDB: %v", err)
+		utils.LogError(err, "Erro ao conectar ao MongoDB")
 		return
 	}
 	defer connection.Disconnect()
 
-	color.Green("Servidor rodando na porta %s", port)
+	utils.Logger.Infof("Servidor rodando na porta %s", port)
 
 	client.HandleShutdown()
 }

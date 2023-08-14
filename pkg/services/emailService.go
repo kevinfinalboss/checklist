@@ -2,12 +2,12 @@ package services
 
 import (
 	"bytes"
-	"fmt"
 	"html/template"
 	"net/smtp"
 	"os"
 	"path/filepath"
 
+	"github.com/kevinfinalboss/checklist-apps/pkg/utils"
 	"github.com/spf13/viper"
 )
 
@@ -22,7 +22,7 @@ func SendEmail(subject, errorMessage string) error {
 
 	tmpl, err := template.ParseFiles(templatePath)
 	if err != nil {
-		fmt.Println("Erro ao carregar template:", err)
+		utils.Logger.Error("Erro ao carregar template:", err)
 		return err
 	}
 
@@ -33,7 +33,7 @@ func SendEmail(subject, errorMessage string) error {
 		ErrorMessage: errorMessage,
 	}
 	if err := tmpl.Execute(&body, data); err != nil {
-		fmt.Println("Erro ao executar template:", err)
+		utils.Logger.Error("Erro ao executar template:", err)
 		return err
 	}
 
@@ -47,10 +47,10 @@ func SendEmail(subject, errorMessage string) error {
 
 	err = smtp.SendMail(host+":"+port, auth, from, []string{to}, []byte(msg))
 	if err != nil {
-		fmt.Println("Error ao enviar email:", err)
+		utils.Logger.Error("Error ao enviar email:", err)
 		return err
 	}
 
-	fmt.Println("E-mail enviado com sucesso!")
+	utils.Logger.Info("E-mail enviado com sucesso!")
 	return nil
 }
