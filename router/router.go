@@ -1,6 +1,8 @@
 package router
 
 import (
+	"net/http"
+
 	"github.com/gin-gonic/gin"
 	"github.com/kevinfinalboss/checklist-apps/api/middlewares"
 	_ "github.com/kevinfinalboss/checklist-apps/docs"
@@ -19,10 +21,20 @@ func SetupRouter() *gin.Engine {
 
 	r.GET("/docs/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
-	r.GET("/diag/health", controllers.HealthCheck)
-	r.GET("/test/panic", func(c *gin.Context) {
-		panic("Isso é um teste de pânico!")
+	r.GET("/login", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "login.html", nil)
 	})
+
+	r.POST("/login", controllers.Login)
+
+	authorized := r.Group("/")
+	authorized.Use(middlewares.AuthMiddleware())
+	{
+		authorized.GET("/diag/health", controllers.HealthCheck)
+		authorized.GET("/test/panic", func(c *gin.Context) {
+			panic("Isso é um teste de pânico!")
+		})
+	}
 
 	return r
 }
