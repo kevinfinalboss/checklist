@@ -23,7 +23,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "Saúde"
+                    "Health Check"
                 ],
                 "summary": "Verificar a saúde da API",
                 "responses": {

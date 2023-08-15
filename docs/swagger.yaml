@@ -13,5 +13,5 @@ paths:
             type: string
       summary: Verificar a saúde da API
       tags:
-      - Saúde
+      - Health Check
 swagger: "2.0"
