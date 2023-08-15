@@ -16,7 +16,7 @@ func SetupRouter() *gin.Engine {
 
 	r.Use(middlewares.RateLimitMiddleware())
 
-	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
+	r.GET("/docs/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
 	r.GET("/diag/health", controllers.HealthCheck)
 	r.GET("/test/panic", func(c *gin.Context) {
