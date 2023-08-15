@@ -1,0 +1,19 @@
+{
+  "swagger": "2.0",
+  "paths": {
+    "/diag/health": {
+      "get": {
+        "description": "Retorna o status de saúde do serviço",
+        "tags": [
+          "health"
+        ],
+        "operationId": "checkHealth",
+        "responses": {
+          "200": {
+            "description": " OK"
+          }
+        }
+      }
+    }
+  }
+}
