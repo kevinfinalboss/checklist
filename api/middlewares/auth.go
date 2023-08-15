@@ -9,33 +9,41 @@ import (
 	"github.com/kevinfinalboss/checklist-apps/pkg/controllers"
 )
 
+const (
+	ErrUnauthorized = "Unauthorized"
+)
+
 func AuthMiddleware() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		cookie, err := c.Cookie("auth_token")
 		if err != nil {
-			c.JSON(http.StatusUnauthorized, "Unauthorized")
+			c.JSON(http.StatusUnauthorized, ErrUnauthorized)
 			c.Abort()
 			return
 		}
 
-		token, err := jwt.ParseWithClaims(cookie, &controllers.Claims{}, func(token *jwt.Token) (interface{}, error) {
-			return []byte(os.Getenv("JWT_SECRET")), nil
-		})
-
-		if err != nil {
-			c.JSON(http.StatusUnauthorized, "Unauthorized")
-			c.Abort()
-			return
-		}
-
-		if claims, ok := token.Claims.(*controllers.Claims); ok && token.Valid {
-			c.Set("username", claims.Username)
-		} else {
-			c.JSON(http.StatusUnauthorized, "Unauthorized")
+		if !isValidToken(cookie) {
+			c.JSON(http.StatusUnauthorized, ErrUnauthorized)
 			c.Abort()
 			return
 		}
 
 		c.Next()
 	}
+}
+
+func isValidToken(cookie string) bool {
+	token, err := jwt.ParseWithClaims(cookie, &controllers.Claims{}, func(token *jwt.Token) (interface{}, error) {
+		return []byte(os.Getenv("JWT_SECRET")), nil
+	})
+
+	if err != nil {
+		return false
+	}
+
+	if _, ok := token.Claims.(*controllers.Claims); ok && token.Valid {
+		return true
+	}
+
+	return false
 }
