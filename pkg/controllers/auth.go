@@ -1,12 +1,19 @@
 package controllers
 
 import (
+	"crypto/subtle"
 	"net/http"
 	"os"
 	"time"
 
 	"github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"
+	"golang.org/x/crypto/bcrypt"
+)
+
+const (
+	ErrGeneratingToken    = "Erro ao gerar token"
+	ErrInvalidCredentials = "Credenciais inválidas"
 )
 
 type Claims struct {
@@ -18,32 +25,45 @@ func Login(c *gin.Context) {
 	username := c.PostForm("username")
 	password := c.PostForm("password")
 
-	masterUsername := os.Getenv("USER_MASTER")
-	masterPassword := os.Getenv("PASSWORD_MASTER")
-
-	if username == masterUsername && password == masterPassword {
+	if isValidUser(username, password) {
 		token, err := generateToken(username)
 		if err != nil {
-			c.JSON(http.StatusInternalServerError, gin.H{"error": "Erro ao gerar token"})
+			c.JSON(http.StatusInternalServerError, gin.H{"error": ErrGeneratingToken})
 			return
 		}
 
-		http.SetCookie(c.Writer, &http.Cookie{
-			Name:     "auth_token",
-			Value:    token,
-			Expires:  time.Now().Add(24 * time.Hour),
-			HttpOnly: true,
-			Secure:   false,
-			SameSite: http.SameSiteStrictMode,
-			Path:     "/",
-		})
-
+		setCookie(c.Writer, token)
 		c.Redirect(http.StatusMovedPermanently, "/diag/health")
 		return
 	}
 
 	c.HTML(http.StatusUnauthorized, "login.html", gin.H{
-		"error": "Credenciais inválidas",
+		"error": ErrInvalidCredentials,
+	})
+}
+
+func isValidUser(username, password string) bool {
+	masterUsername := os.Getenv("USER_MASTER")
+	masterPassword := os.Getenv("PASSWORD_MASTER")
+
+	hashedPassword, err := bcrypt.GenerateFromPassword([]byte(masterPassword), bcrypt.DefaultCost)
+	if err != nil {
+		return false
+	}
+
+	return subtle.ConstantTimeCompare([]byte(username), []byte(masterUsername)) == 1 &&
+		bcrypt.CompareHashAndPassword(hashedPassword, []byte(password)) == nil
+}
+
+func setCookie(w http.ResponseWriter, token string) {
+	http.SetCookie(w, &http.Cookie{
+		Name:     "auth_token",
+		Value:    token,
+		Expires:  time.Now().Add(24 * time.Hour),
+		HttpOnly: true,
+		Secure:   false,
+		SameSite: http.SameSiteStrictMode,
+		Path:     "/",
 	})
 }
 
