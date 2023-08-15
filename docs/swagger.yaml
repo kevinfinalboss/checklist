@@ -1,0 +1,17 @@
+info:
+  contact: {}
+paths:
+  /diag/health:
+    get:
+      description: Retorna OK se a API estiver funcionando
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: Verificar a saúde da API
+      tags:
+      - Saúde
+swagger: "2.0"
