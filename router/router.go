@@ -13,6 +13,7 @@ func SetupRouter() *gin.Engine {
 	r := gin.Default()
 	r.Use(middlewares.ErrorHandler())
 	r.LoadHTMLGlob("./templates/*")
+	r.Static("/assets", "./assets")
 
 	r.Use(middlewares.RateLimitMiddleware())
 
