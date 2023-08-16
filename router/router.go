@@ -17,8 +17,6 @@ func SetupRouter() *gin.Engine {
 	r.LoadHTMLGlob("./templates/*")
 	r.Static("/assets", "./assets")
 
-	r.Use(middlewares.RateLimitMiddleware())
-
 	r.GET("/docs/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
 	r.GET("/login", func(c *gin.Context) {
