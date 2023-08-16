@@ -181,6 +181,21 @@ a:hover{
 	background-position: right;
 }
 
+
+@keyframes fadein {
+	0% { opacity: 0; }
+	100% { opacity: 1; }
+}
+
+@keyframes fadeout {
+	0% { opacity: 1; }
+	100% { opacity: 0; }
+}
+
+#notification {
+	animation: fadein 3s, fadeout 1s 3s;
+}
+
 @media screen and (max-width: 1050px){
 	.container{
 		grid-gap: 5rem;
