@@ -33,13 +33,11 @@ func Login(c *gin.Context) {
 		}
 
 		setCookie(c.Writer, token)
-		c.Redirect(http.StatusMovedPermanently, "/home")
+		c.Redirect(http.StatusMovedPermanently, "/home?login_success=true")
 		return
 	}
 
-	c.HTML(http.StatusUnauthorized, "login.html", gin.H{
-		"error": ErrInvalidCredentials,
-	})
+	c.Redirect(http.StatusSeeOther, "/login?invalid_credentials=true")
 }
 
 func isValidUser(username, password string) bool {
