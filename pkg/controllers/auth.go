@@ -33,7 +33,7 @@ func Login(c *gin.Context) {
 		}
 
 		setCookie(c.Writer, token)
-		c.Redirect(http.StatusMovedPermanently, "/diag/health")
+		c.Redirect(http.StatusMovedPermanently, "/home")
 		return
 	}
 
