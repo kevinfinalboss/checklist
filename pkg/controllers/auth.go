@@ -59,7 +59,7 @@ func setCookie(w http.ResponseWriter, token string) {
 		Value:    token,
 		Expires:  time.Now().Add(1 * time.Minute),
 		HttpOnly: true,
-		Secure:   false,
+		Secure:   true,
 		SameSite: http.SameSiteStrictMode,
 		Path:     "/",
 	})
