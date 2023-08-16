@@ -17,17 +17,19 @@ func SetupRouter() *gin.Engine {
 	r.LoadHTMLGlob("./templates/*")
 	r.Static("/assets", "./assets")
 
-	r.GET("/docs/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
-
 	r.GET("/login", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "login.html", nil)
 	})
-
 	r.POST("/login", controllers.Login)
 
 	authorized := r.Group("/")
 	authorized.Use(middlewares.AuthMiddleware())
 	{
+		authorized.GET("/docs", func(c *gin.Context) {
+			c.Redirect(http.StatusMovedPermanently, "/docs/index.html")
+		})
+		authorized.GET("/docs/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
+
 		authorized.GET("/diag/health", controllers.HealthCheck)
 		authorized.GET("/test/panic", func(c *gin.Context) {
 			panic("Isso é um teste de pânico!")
