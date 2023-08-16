@@ -21,6 +21,15 @@ type Claims struct {
 	jwt.StandardClaims
 }
 
+// @Summary Realizar login do usuário
+// @Description Autentica o usuário com base no nome de usuário e senha fornecidos e define um cookie de autenticação
+// @Tags Autenticação
+// @Produce  json
+// @Param   username formData string true "Nome de usuário"
+// @Param   password formData string true "Senha"
+// @Success 301 {string} string "Redireciona para a página inicial com sucesso no login"
+// @Failure 303 {string} string "Redireciona para a página de login com credenciais inválidas"
+// @Router /login [post]
 func Login(c *gin.Context) {
 	username := c.PostForm("username")
 	password := c.PostForm("password")
