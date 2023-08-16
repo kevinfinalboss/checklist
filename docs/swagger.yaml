@@ -14,4 +14,33 @@ paths:
       summary: Verificar a saúde da API
       tags:
       - Health Check
+  /login:
+    post:
+      description: Autentica o usuário com base no nome de usuário e senha fornecidos
+        e define um cookie de autenticação
+      parameters:
+      - description: Nome de usuário
+        in: formData
+        name: username
+        required: true
+        type: string
+      - description: Senha
+        in: formData
+        name: password
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "301":
+          description: Redireciona para a página inicial com sucesso no login
+          schema:
+            type: string
+        "303":
+          description: Redireciona para a página de login com credenciais inválidas
+          schema:
+            type: string
+      summary: Realizar login do usuário
+      tags:
+      - Autenticação
 swagger: "2.0"
