@@ -1,0 +1,643 @@
+info: "Iniciando o servidor na porta 80..." Date: 15/08/2023 ás 12:35
+info: "Conectado ao MongoDB com sucesso!" Date: 15/08/2023 ás 12:35
+info: "Servidor rodando na porta 80" Date: 15/08/2023 ás 12:35
+[GIN] 2023/08/15 - 12:35:59 | 200 |         927µs |             ::1 | GET      "/swagger/index.html"
+[GIN] 2023/08/15 - 12:35:59 | 200 |            0s |             ::1 | GET      "/swagger/swagger-ui.css"
+[GIN] 2023/08/15 - 12:35:59 | 200 |            0s |             ::1 | GET      "/swagger/swagger-ui-standalone-preset.js"
+[GIN] 2023/08/15 - 12:35:59 | 200 |      3.2917ms |             ::1 | GET      "/swagger/swagger-ui-bundle.js"
+[GIN] 2023/08/15 - 12:35:59 | 500 |            0s |             ::1 | GET      "/swagger/doc.json"
+[GIN] 2023/08/15 - 12:35:59 | 200 |            0s |             ::1 | GET      "/swagger/favicon-32x32.png"
+[GIN] 2023/08/15 - 12:36:13 | 404 |            0s |             ::1 | GET      "/swagger/swagger.json"
+info: "
+Desligando o servidor..." Date: 15/08/2023 ás 12:36
+info: "Servidor desligado com sucesso." Date: 15/08/2023 ás 12:36
+info: "Desconectado do MongoDB com sucesso!" Date: 15/08/2023 ás 12:36
+info: "Iniciando o servidor na porta 80..." Date: 15/08/2023 ás 12:38
+info: "Conectado ao MongoDB com sucesso!" Date: 15/08/2023 ás 12:38
+info: "Servidor rodando na porta 80" Date: 15/08/2023 ás 12:38
+[GIN] 2023/08/15 - 12:38:42 | 200 |      1.0001ms |             ::1 | GET      "/swagger/index.html"
+[GIN] 2023/08/15 - 12:38:42 | 200 |            0s |             ::1 | GET      "/swagger/swagger-ui.css"
+[GIN] 2023/08/15 - 12:38:42 | 200 |       999.3µs |             ::1 | GET      "/swagger/swagger-ui-standalone-preset.js"
+[GIN] 2023/08/15 - 12:38:42 | 200 |     11.0077ms |             ::1 | GET      "/swagger/swagger-ui-bundle.js"
+[GIN] 2023/08/15 - 12:38:43 | 500 |            0s |             ::1 | GET      "/swagger/doc.json"
+[GIN] 2023/08/15 - 12:38:43 | 200 |            0s |             ::1 | GET      "/swagger/favicon-32x32.png"
+[GIN] 2023/08/15 - 12:38:47 | 404 |            0s |             ::1 | GET      "/swagger/swagger.json"
+info: "
+Desligando o servidor..." Date: 15/08/2023 ás 12:39
+info: "Servidor desligado com sucesso." Date: 15/08/2023 ás 12:39
+info: "Desconectado do MongoDB com sucesso!" Date: 15/08/2023 ás 12:39
+info: "Iniciando o servidor na porta 80..." Date: 15/08/2023 ás 12:51
+info: "Conectado ao MongoDB com sucesso!" Date: 15/08/2023 ás 12:51
+info: "Servidor rodando na porta 80" Date: 15/08/2023 ás 12:51
+[GIN] 2023/08/15 - 12:51:30 | 200 |            0s |             ::1 | GET      "/swagger/index.html"
+[GIN] 2023/08/15 - 12:51:30 | 200 |       996.4µs |             ::1 | GET      "/swagger/swagger-ui.css"
+[GIN] 2023/08/15 - 12:51:30 | 200 |      1.3141ms |             ::1 | GET      "/swagger/swagger-ui-bundle.js"
+[GIN] 2023/08/15 - 12:51:30 | 200 |      9.4788ms |             ::1 | GET      "/swagger/swagger-ui-standalone-preset.js"
+[GIN] 2023/08/15 - 12:51:31 | 200 |      1.0009ms |             ::1 | GET      "/swagger/doc.json"
+[GIN] 2023/08/15 - 12:51:31 | 200 |       725.3µs |             ::1 | GET      "/swagger/favicon-32x32.png"
+[GIN] 2023/08/15 - 12:51:33 | 429 |            0s |             ::1 | GET      "/swagger/doc.json"
+[GIN] 2023/08/15 - 12:51:33 | 404 |            0s |             ::1 | GET      "/favicon.ico"
+[GIN] 2023/08/15 - 12:51:41 | 200 |       607.4µs |             ::1 | GET      "/swagger/doc.json"
+[GIN] 2023/08/15 - 12:51:45 | 200 |       461.7µs |             ::1 | GET      "/swagger/doc.json"
+[GIN] 2023/08/15 - 12:51:48 | 404 |            0s |             ::1 | GET      "/swagger/"
+[GIN] 2023/08/15 - 12:51:51 | 200 |       639.1µs |             ::1 | GET      "/swagger/index.html"
+[GIN] 2023/08/15 - 12:51:51 | 304 |            0s |             ::1 | GET      "/swagger/swagger-ui.css"
+[GIN] 2023/08/15 - 12:51:51 | 304 |            0s |             ::1 | GET      "/swagger/swagger-ui-bundle.js"
+[GIN] 2023/08/15 - 12:51:51 | 304 |            0s |             ::1 | GET      "/swagger/swagger-ui-standalone-preset.js"
+[GIN] 2023/08/15 - 12:51:52 | 200 |       551.9µs |             ::1 | GET      "/swagger/doc.json"
+info: "
+Desligando o servidor..." Date: 15/08/2023 ás 12:52
+info: "Servidor desligado com sucesso." Date: 15/08/2023 ás 12:52
+info: "Desconectado do MongoDB com sucesso!" Date: 15/08/2023 ás 12:52
+info: "Iniciando o servidor na porta 80..." Date: 15/08/2023 ás 12:54
+info: "Conectado ao MongoDB com sucesso!" Date: 15/08/2023 ás 12:54
+info: "Servidor rodando na porta 80" Date: 15/08/2023 ás 12:54
+[GIN] 2023/08/15 - 12:54:48 | 200 |       959.6µs |             ::1 | GET      "/swagger/index.html"
+[GIN] 2023/08/15 - 12:54:48 | 200 |            0s |             ::1 | GET      "/swagger/swagger-ui.css"
+[GIN] 2023/08/15 - 12:54:48 | 200 |       559.5µs |             ::1 | GET      "/swagger/swagger-ui-bundle.js"
+[GIN] 2023/08/15 - 12:54:48 | 200 |       957.1µs |             ::1 | GET      "/swagger/swagger-ui-standalone-preset.js"
+[GIN] 2023/08/15 - 12:54:48 | 200 |       721.5µs |             ::1 | GET      "/swagger/doc.json"
+info: "
+Desligando o servidor..." Date: 15/08/2023 ás 12:55
+info: "Servidor desligado com sucesso." Date: 15/08/2023 ás 12:55
+info: "Desconectado do MongoDB com sucesso!" Date: 15/08/2023 ás 12:55
+info: "Iniciando o servidor na porta 80..." Date: 15/08/2023 ás 12:55
+info: "Conectado ao MongoDB com sucesso!" Date: 15/08/2023 ás 12:55
+info: "Servidor rodando na porta 80" Date: 15/08/2023 ás 12:55
+[GIN] 2023/08/15 - 12:55:17 | 200 |      1.0175ms |             ::1 | GET      "/swagger/index.html"
+[GIN] 2023/08/15 - 12:55:17 | 200 |      1.9916ms |             ::1 | GET      "/swagger/swagger-ui-bundle.js"
+[GIN] 2023/08/15 - 12:55:17 | 200 |            0s |             ::1 | GET      "/swagger/swagger-ui.css"
+[GIN] 2023/08/15 - 12:55:17 | 200 |       793.6µs |             ::1 | GET      "/swagger/swagger-ui-standalone-preset.js"
+[GIN] 2023/08/15 - 12:55:18 | 200 |      12.998ms |             ::1 | GET      "/swagger/doc.json"
+[GIN] 2023/08/15 - 12:55:18 | 200 |            0s |             ::1 | GET      "/swagger/favicon-32x32.png"
+[GIN] 2023/08/15 - 12:55:22 | 200 |       806.5µs |             ::1 | GET      "/diag/health"
+info: "
+Desligando o servidor..." Date: 15/08/2023 ás 12:56
+info: "Servidor desligado com sucesso." Date: 15/08/2023 ás 12:56
+info: "Desconectado do MongoDB com sucesso!" Date: 15/08/2023 ás 12:56
+info: "Iniciando o servidor na porta 80..." Date: 15/08/2023 ás 12:58
+info: "Conectado ao MongoDB com sucesso!" Date: 15/08/2023 ás 12:58
+info: "Servidor rodando na porta 80" Date: 15/08/2023 ás 12:58
+[GIN] 2023/08/15 - 13:01:16 | 200 |       923.5µs |             ::1 | GET      "/swagger/index.html"
+[GIN] 2023/08/15 - 13:01:16 | 200 |            0s |             ::1 | GET      "/swagger/swagger-ui.css"
+[GIN] 2023/08/15 - 13:01:16 | 200 |      4.5244ms |             ::1 | GET      "/swagger/swagger-ui-bundle.js"
+[GIN] 2023/08/15 - 13:01:16 | 200 |      1.0005ms |             ::1 | GET      "/swagger/swagger-ui-standalone-preset.js"
+[GIN] 2023/08/15 - 13:01:16 | 200 |      1.0552ms |             ::1 | GET      "/swagger/doc.json"
+[GIN] 2023/08/15 - 13:01:16 | 200 |            0s |             ::1 | GET      "/swagger/favicon-32x32.png"
+[GIN] 2023/08/15 - 13:01:33 | 200 |            0s |             ::1 | GET      "/swagger/doc.json"
+info: "
+Desligando o servidor..." Date: 15/08/2023 ás 13:03
+info: "Servidor desligado com sucesso." Date: 15/08/2023 ás 13:03
+info: "Desconectado do MongoDB com sucesso!" Date: 15/08/2023 ás 13:03
+info: "Iniciando o servidor na porta 80..." Date: 15/08/2023 ás 13:03
+info: "Conectado ao MongoDB com sucesso!" Date: 15/08/2023 ás 13:03
+info: "Servidor rodando na porta 80" Date: 15/08/2023 ás 13:03
+[GIN] 2023/08/15 - 13:03:28 | 200 |       556.5µs |             ::1 | GET      "/swagger/index.html"
+[GIN] 2023/08/15 - 13:03:28 | 200 |       997.4µs |             ::1 | GET      "/swagger/swagger-ui-bundle.js"
+[GIN] 2023/08/15 - 13:03:28 | 200 |      1.9998ms |             ::1 | GET      "/swagger/swagger-ui-standalone-preset.js"
+[GIN] 2023/08/15 - 13:03:28 | 200 |      3.8182ms |             ::1 | GET      "/swagger/swagger-ui.css"
+[GIN] 2023/08/15 - 13:03:28 | 200 |      1.9997ms |             ::1 | GET      "/swagger/doc.json"
+[GIN] 2023/08/15 - 13:03:28 | 200 |            0s |             ::1 | GET      "/swagger/favicon-32x32.png"
+[GIN] 2023/08/15 - 13:04:26 | 200 |         947µs |             ::1 | GET      "/swagger/index.html"
+[GIN] 2023/08/15 - 13:04:32 | 200 |       356.3µs |             ::1 | GET      "/swagger/index.html"
+[GIN] 2023/08/15 - 13:04:32 | 304 |            0s |             ::1 | GET      "/swagger/swagger-ui-standalone-preset.js"
+[GIN] 2023/08/15 - 13:04:32 | 304 |            0s |             ::1 | GET      "/swagger/swagger-ui.css"
+[GIN] 2023/08/15 - 13:04:32 | 304 |            0s |             ::1 | GET      "/swagger/swagger-ui-bundle.js"
+[GIN] 2023/08/15 - 13:04:32 | 200 |      1.1922ms |             ::1 | GET      "/swagger/doc.json"
+[GIN] 2023/08/15 - 13:04:32 | 304 |            0s |             ::1 | GET      "/swagger/favicon-32x32.png"
+[GIN] 2023/08/15 - 13:04:45 | 404 |            0s |             ::1 | GET      "/swagger/Saúde"
+[GIN] 2023/08/15 - 13:06:28 | 404 |       195.4µs |             ::1 | GET      "/swagger/docs.json"
+[GIN] 2023/08/15 - 13:06:31 | 404 |            0s |             ::1 | GET      "/swagger/docs.go"
+[GIN] 2023/08/15 - 13:06:35 | 200 |       202.8µs |             ::1 | GET      "/swagger/index.html"
+[GIN] 2023/08/15 - 13:06:35 | 304 |            0s |             ::1 | GET      "/swagger/swagger-ui.css"
+[GIN] 2023/08/15 - 13:06:35 | 304 |            0s |             ::1 | GET      "/swagger/swagger-ui-standalone-preset.js"
+[GIN] 2023/08/15 - 13:06:35 | 304 |       506.9µs |             ::1 | GET      "/swagger/swagger-ui-bundle.js"
+[GIN] 2023/08/15 - 13:06:36 | 200 |       858.4µs |             ::1 | GET      "/swagger/doc.json"
+[GIN] 2023/08/15 - 13:06:36 | 304 |            0s |             ::1 | GET      "/swagger/favicon-32x32.png"
+[GIN] 2023/08/15 - 13:06:39 | 404 |            0s |             ::1 | GET      "/swagger/docs"
+[GIN] 2023/08/15 - 13:06:41 | 404 |            0s |             ::1 | GET      "/swagger/doc.go"
+[GIN] 2023/08/15 - 13:06:45 | 404 |            0s |             ::1 | GET      "/swagger/docs.go"
+[GIN] 2023/08/15 - 13:06:47 | 200 |       443.1µs |             ::1 | GET      "/swagger/index.html"
+[GIN] 2023/08/15 - 13:06:47 | 200 |       823.2µs |             ::1 | GET      "/swagger/doc.json"
+[GIN] 2023/08/15 - 13:06:49 | 404 |            0s |             ::1 | GET      "/swagger/doc"
+[GIN] 2023/08/15 - 13:06:52 | 200 |            0s |             ::1 | GET      "/swagger/doc.json"
+info: "
+Desligando o servidor..." Date: 15/08/2023 ás 13:07
+info: "Servidor desligado com sucesso." Date: 15/08/2023 ás 13:07
+info: "Desconectado do MongoDB com sucesso!" Date: 15/08/2023 ás 13:07
+info: "Iniciando o servidor na porta 80..." Date: 15/08/2023 ás 13:08
+info: "Conectado ao MongoDB com sucesso!" Date: 15/08/2023 ás 13:08
+info: "Servidor rodando na porta 80" Date: 15/08/2023 ás 13:08
+[GIN] 2023/08/15 - 13:08:40 | 200 |       507.8µs |             ::1 | GET      "/swagger/index.html"
+[GIN] 2023/08/15 - 13:08:40 | 200 |     18.0031ms |             ::1 | GET      "/swagger/swagger-ui-bundle.js"
+[GIN] 2023/08/15 - 13:08:40 | 200 |      2.9995ms |             ::1 | GET      "/swagger/swagger-ui.css"
+[GIN] 2023/08/15 - 13:08:40 | 200 |      1.0125ms |             ::1 | GET      "/swagger/swagger-ui-standalone-preset.js"
+[GIN] 2023/08/15 - 13:08:40 | 200 |            0s |             ::1 | GET      "/swagger/doc.json"
+[GIN] 2023/08/15 - 13:08:40 | 200 |       110.8µs |             ::1 | GET      "/swagger/favicon-32x32.png"
+[GIN] 2023/08/15 - 13:08:50 | 200 |       416.4µs |             ::1 | GET      "/swagger/index.html"
+[GIN] 2023/08/15 - 13:08:50 | 304 |            0s |             ::1 | GET      "/swagger/swagger-ui-standalone-preset.js"
+[GIN] 2023/08/15 - 13:08:50 | 304 |            0s |             ::1 | GET      "/swagger/swagger-ui.css"
+[GIN] 2023/08/15 - 13:08:50 | 304 |            0s |             ::1 | GET      "/swagger/swagger-ui-bundle.js"
+[GIN] 2023/08/15 - 13:08:50 | 304 |            0s |             ::1 | GET      "/swagger/favicon-32x32.png"
+[GIN] 2023/08/15 - 13:08:50 | 200 |       850.8µs |             ::1 | GET      "/swagger/doc.json"
+info: "
+Desligando o servidor..." Date: 15/08/2023 ás 13:08
+info: "Servidor desligado com sucesso." Date: 15/08/2023 ás 13:08
+info: "Desconectado do MongoDB com sucesso!" Date: 15/08/2023 ás 13:08
+info: "Iniciando o servidor na porta 80..." Date: 15/08/2023 ás 13:08
+info: "Conectado ao MongoDB com sucesso!" Date: 15/08/2023 ás 13:08
+info: "Servidor rodando na porta 80" Date: 15/08/2023 ás 13:08
+[GIN] 2023/08/15 - 13:09:00 | 200 |       563.4µs |             ::1 | GET      "/swagger/index.html"
+[GIN] 2023/08/15 - 13:09:00 | 200 |      1.0014ms |             ::1 | GET      "/swagger/swagger-ui.css"
+[GIN] 2023/08/15 - 13:09:00 | 200 |      6.0023ms |             ::1 | GET      "/swagger/swagger-ui-standalone-preset.js"
+[GIN] 2023/08/15 - 13:09:00 | 200 |      19.994ms |             ::1 | GET      "/swagger/swagger-ui-bundle.js"
+[GIN] 2023/08/15 - 13:09:00 | 200 |       241.4µs |             ::1 | GET      "/swagger/doc.json"
+[GIN] 2023/08/15 - 13:09:00 | 200 |            0s |             ::1 | GET      "/swagger/favicon-32x32.png"
+info: "
+Desligando o servidor..." Date: 15/08/2023 ás 13:09
+info: "Servidor desligado com sucesso." Date: 15/08/2023 ás 13:09
+info: "Desconectado do MongoDB com sucesso!" Date: 15/08/2023 ás 13:09
+info: "Iniciando o servidor na porta 80..." Date: 15/08/2023 ás 13:11
+info: "Conectado ao MongoDB com sucesso!" Date: 15/08/2023 ás 13:11
+info: "Servidor rodando na porta 80" Date: 15/08/2023 ás 13:11
+[GIN] 2023/08/15 - 13:11:05 | 200 |      1.1162ms |             ::1 | GET      "/swagger/index.html"
+[GIN] 2023/08/15 - 13:11:05 | 200 |            0s |             ::1 | GET      "/swagger/swagger-ui.css"
+[GIN] 2023/08/15 - 13:11:05 | 200 |      1.6262ms |             ::1 | GET      "/swagger/swagger-ui-bundle.js"
+[GIN] 2023/08/15 - 13:11:05 | 200 |      1.6582ms |             ::1 | GET      "/swagger/swagger-ui-standalone-preset.js"
+[GIN] 2023/08/15 - 13:11:06 | 200 |            0s |             ::1 | GET      "/swagger/doc.json"
+[GIN] 2023/08/15 - 13:11:06 | 200 |            0s |             ::1 | GET      "/swagger/favicon-32x32.png"
+info: "
+Desligando o servidor..." Date: 15/08/2023 ás 13:12
+info: "Servidor desligado com sucesso." Date: 15/08/2023 ás 13:12
+info: "Desconectado do MongoDB com sucesso!" Date: 15/08/2023 ás 13:12
+info: "Iniciando o servidor na porta 80..." Date: 15/08/2023 ás 13:12
+info: "Conectado ao MongoDB com sucesso!" Date: 15/08/2023 ás 13:12
+info: "Servidor rodando na porta 80" Date: 15/08/2023 ás 13:12
+[GIN] 2023/08/15 - 13:12:19 | 404 |            0s |             ::1 | GET      "/docs/"
+[GIN] 2023/08/15 - 13:12:26 | 200 |       337.2µs |             ::1 | GET      "/docs/index.html"
+[GIN] 2023/08/15 - 13:12:26 | 200 |            0s |             ::1 | GET      "/docs/swagger-ui.css"
+[GIN] 2023/08/15 - 13:12:26 | 200 |      4.5208ms |             ::1 | GET      "/docs/swagger-ui-standalone-preset.js"
+[GIN] 2023/08/15 - 13:12:26 | 200 |      3.0254ms |             ::1 | GET      "/docs/swagger-ui-bundle.js"
+[GIN] 2023/08/15 - 13:12:26 | 200 |       872.3µs |             ::1 | GET      "/docs/doc.json"
+[GIN] 2023/08/15 - 13:12:26 | 200 |            0s |             ::1 | GET      "/docs/favicon-32x32.png"
+info: "
+Desligando o servidor..." Date: 15/08/2023 ás 13:13
+info: "Servidor desligado com sucesso." Date: 15/08/2023 ás 13:13
+info: "Desconectado do MongoDB com sucesso!" Date: 15/08/2023 ás 13:13
+info: "Iniciando o servidor na porta 80..." Date: 15/08/2023 ás 13:13
+info: "Conectado ao MongoDB com sucesso!" Date: 15/08/2023 ás 13:13
+info: "Servidor rodando na porta 80" Date: 15/08/2023 ás 13:13
+[GIN] 2023/08/15 - 13:13:43 | 404 |       374.7µs |             ::1 | GET      "/docs/"
+[GIN] 2023/08/15 - 13:13:46 | 404 |            0s |             ::1 | GET      "/docs/"
+[GIN] 2023/08/15 - 13:13:52 | 404 |            0s |             ::1 | GET      "/swagger/index.html"
+[GIN] 2023/08/15 - 13:13:55 | 200 |         778µs |             ::1 | GET      "/docs/index.html"
+[GIN] 2023/08/15 - 13:13:55 | 200 |            0s |             ::1 | GET      "/docs/swagger-ui.css"
+[GIN] 2023/08/15 - 13:13:55 | 200 |      5.0032ms |             ::1 | GET      "/docs/swagger-ui-bundle.js"
+[GIN] 2023/08/15 - 13:13:55 | 200 |       998.2µs |             ::1 | GET      "/docs/swagger-ui-standalone-preset.js"
+[GIN] 2023/08/15 - 13:13:55 | 200 |            0s |             ::1 | GET      "/docs/doc.json"
+[GIN] 2023/08/15 - 13:13:58 | 404 |            0s |             ::1 | GET      "/docs/"
+info: "
+Desligando o servidor..." Date: 15/08/2023 ás 13:15
+info: "Servidor desligado com sucesso." Date: 15/08/2023 ás 13:15
+info: "Desconectado do MongoDB com sucesso!" Date: 15/08/2023 ás 13:15
+info: "Iniciando o servidor na porta 80..." Date: 15/08/2023 ás 13:15
+info: "Conectado ao MongoDB com sucesso!" Date: 15/08/2023 ás 13:15
+info: "Servidor rodando na porta 80" Date: 15/08/2023 ás 13:15
+info: "
+Desligando o servidor..." Date: 15/08/2023 ás 13:16
+info: "Servidor desligado com sucesso." Date: 15/08/2023 ás 13:16
+info: "Desconectado do MongoDB com sucesso!" Date: 15/08/2023 ás 13:16
+info: "Iniciando o servidor na porta 80..." Date: 15/08/2023 ás 14:07
+info: "Conectado ao MongoDB com sucesso!" Date: 15/08/2023 ás 14:07
+info: "Servidor rodando na porta 80" Date: 15/08/2023 ás 14:07
+info: "
+Desligando o servidor..." Date: 15/08/2023 ás 14:07
+info: "Servidor desligado com sucesso." Date: 15/08/2023 ás 14:07
+info: "Desconectado do MongoDB com sucesso!" Date: 15/08/2023 ás 14:07
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] Loaded HTML Templates (3): 
+	- error.html
+	- login.html
+	- 
+
+[GIN-debug] GET    /assets/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (4 handlers)
+[GIN-debug] HEAD   /assets/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (4 handlers)
+[GIN-debug] GET    /docs/*any                --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (5 handlers)
+[GIN-debug] GET    /diag/health              --> github.com/kevinfinalboss/checklist-apps/pkg/controllers.HealthCheck (5 handlers)
+[GIN-debug] GET    /test/panic               --> github.com/kevinfinalboss/checklist-apps/router.SetupRouter.func1 (5 handlers)
+info: "Iniciando o servidor na porta 80..." Date: 15/08/2023 ás 14:08
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :80
+info: "Conectado ao MongoDB com sucesso!" Date: 15/08/2023 ás 14:08
+info: "Servidor rodando na porta 80" Date: 15/08/2023 ás 14:08
+info: "
+Desligando o servidor..." Date: 15/08/2023 ás 14:12
+info: "Servidor desligado com sucesso." Date: 15/08/2023 ás 14:12
+info: "Desconectado do MongoDB com sucesso!" Date: 15/08/2023 ás 14:12
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] Loaded HTML Templates (3): 
+	- 
+	- error.html
+	- login.html
+
+[GIN-debug] GET    /assets/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (4 handlers)
+[GIN-debug] HEAD   /assets/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (4 handlers)
+[GIN-debug] GET    /docs/*any                --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (5 handlers)
+[GIN-debug] GET    /diag/health              --> github.com/kevinfinalboss/checklist-apps/pkg/controllers.HealthCheck (5 handlers)
+[GIN-debug] GET    /test/panic               --> github.com/kevinfinalboss/checklist-apps/router.SetupRouter.func1 (5 handlers)
+info: "Iniciando o servidor na porta 80..." Date: 15/08/2023 ás 14:12
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :80
+info: "Conectado ao MongoDB com sucesso!" Date: 15/08/2023 ás 14:12
+info: "Servidor rodando na porta 80" Date: 15/08/2023 ás 14:12
+[GIN] 2023/08/15 - 14:12:56 | 404 |            0s |             ::1 | GET      "/login.html"
+info: "
+Desligando o servidor..." Date: 15/08/2023 ás 14:22
+info: "Servidor desligado com sucesso." Date: 15/08/2023 ás 14:22
+info: "Desconectado do MongoDB com sucesso!" Date: 15/08/2023 ás 14:22
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] Loaded HTML Templates (3): 
+	- 
+	- error.html
+	- login.html
+
+[GIN-debug] GET    /assets/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (4 handlers)
+[GIN-debug] HEAD   /assets/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (4 handlers)
+[GIN-debug] GET    /docs/*any                --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (5 handlers)
+[GIN-debug] POST   /login                    --> github.com/kevinfinalboss/checklist-apps/pkg/controllers.Login (5 handlers)
+[GIN-debug] GET    /diag/health              --> github.com/kevinfinalboss/checklist-apps/pkg/controllers.HealthCheck (6 handlers)
+[GIN-debug] GET    /test/panic               --> github.com/kevinfinalboss/checklist-apps/router.SetupRouter.func1 (6 handlers)
+info: "Iniciando o servidor na porta 80..." Date: 15/08/2023 ás 19:59
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :80
+info: "Conectado ao MongoDB com sucesso!" Date: 15/08/2023 ás 19:59
+info: "Servidor rodando na porta 80" Date: 15/08/2023 ás 19:59
+info: "
+Desligando o servidor..." Date: 15/08/2023 ás 20:01
+info: "Servidor desligado com sucesso." Date: 15/08/2023 ás 20:01
+info: "Desconectado do MongoDB com sucesso!" Date: 15/08/2023 ás 20:01
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] Loaded HTML Templates (3): 
+	- error.html
+	- login.html
+	- 
+
+[GIN-debug] GET    /assets/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (4 handlers)
+[GIN-debug] HEAD   /assets/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (4 handlers)
+[GIN-debug] GET    /docs/*any                --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (5 handlers)
+[GIN-debug] POST   /login                    --> github.com/kevinfinalboss/checklist-apps/pkg/controllers.Login (5 handlers)
+[GIN-debug] GET    /diag/health              --> github.com/kevinfinalboss/checklist-apps/pkg/controllers.HealthCheck (6 handlers)
+[GIN-debug] GET    /test/panic               --> github.com/kevinfinalboss/checklist-apps/router.SetupRouter.func1 (6 handlers)
+info: "Iniciando o servidor na porta 80..." Date: 15/08/2023 ás 20:04
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :80
+info: "Conectado ao MongoDB com sucesso!" Date: 15/08/2023 ás 20:04
+info: "Servidor rodando na porta 80" Date: 15/08/2023 ás 20:04
+[GIN] 2023/08/15 - 20:04:32 | 404 |            0s |             ::1 | GET      "/login"
+[GIN] 2023/08/15 - 20:04:38 | 404 |            0s |             ::1 | GET      "/login.html"
+info: "
+Desligando o servidor..." Date: 15/08/2023 ás 20:05
+info: "Servidor desligado com sucesso." Date: 15/08/2023 ás 20:05
+info: "Desconectado do MongoDB com sucesso!" Date: 15/08/2023 ás 20:05
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] Loaded HTML Templates (3): 
+	- 
+	- error.html
+	- login.html
+
+[GIN-debug] GET    /assets/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (4 handlers)
+[GIN-debug] HEAD   /assets/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (4 handlers)
+[GIN-debug] GET    /docs/*any                --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (5 handlers)
+[GIN-debug] GET    /login                    --> github.com/kevinfinalboss/checklist-apps/router.SetupRouter.func1 (5 handlers)
+[GIN-debug] POST   /login                    --> github.com/kevinfinalboss/checklist-apps/pkg/controllers.Login (5 handlers)
+[GIN-debug] GET    /diag/health              --> github.com/kevinfinalboss/checklist-apps/pkg/controllers.HealthCheck (6 handlers)
+[GIN-debug] GET    /test/panic               --> github.com/kevinfinalboss/checklist-apps/router.SetupRouter.func2 (6 handlers)
+info: "Iniciando o servidor na porta 80..." Date: 15/08/2023 ás 20:07
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :80
+info: "Conectado ao MongoDB com sucesso!" Date: 15/08/2023 ás 20:07
+info: "Servidor rodando na porta 80" Date: 15/08/2023 ás 20:07
+[GIN] 2023/08/15 - 20:07:25 | 404 |       244.3µs |             ::1 | GET      "/login.html"
+[GIN] 2023/08/15 - 20:07:31 | 200 |      1.1502ms |             ::1 | GET      "/login"
+[GIN] 2023/08/15 - 20:07:31 | 200 |     83.3521ms |             ::1 | GET      "/assets/css/login.css"
+[GIN] 2023/08/15 - 20:07:31 | 200 |            0s |             ::1 | GET      "/assets/js/login.js"
+[GIN] 2023/08/15 - 20:07:31 | 200 |     16.3082ms |             ::1 | GET      "/assets/images/wave.png"
+[GIN] 2023/08/15 - 20:07:31 | 404 |            0s |             ::1 | GET      "/assets/images/bg.svg"
+[GIN] 2023/08/15 - 20:07:31 | 404 |            0s |             ::1 | GET      "/assets/images/avatar.svg"
+[GIN] 2023/08/15 - 20:07:36 | 301 |       917.3µs |             ::1 | POST     "/login"
+[GIN] 2023/08/15 - 20:07:36 | 200 |       423.9µs |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:07:40 | 200 |      1.1455ms |             ::1 | GET      "/login"
+[GIN] 2023/08/15 - 20:07:43 | 401 |      1.7204ms |             ::1 | POST     "/login"
+[GIN] 2023/08/15 - 20:07:43 | 404 |            0s |             ::1 | GET      "/assets/images/avatar.svg"
+[GIN] 2023/08/15 - 20:07:43 | 404 |            0s |             ::1 | GET      "/assets/images/bg.svg"
+[GIN] 2023/08/15 - 20:09:00 | 200 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:02 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:03 | 200 |       764.8µs |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:04 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:04 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:04 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:05 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:05 | 200 |       295.3µs |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:05 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:05 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:06 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:06 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:07 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:07 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:07 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:07 | 200 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:07 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:08 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:08 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:08 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:08 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:08 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:09 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:09 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:09 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:09 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:09 | 200 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:10 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:10 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:10 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:10 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:11 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:12 | 200 |       364.4µs |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:12 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:12 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:12 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:13 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:13 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:13 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:13 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:13 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:13 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:13 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:14 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:14 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:14 | 200 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:14 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:14 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:15 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:15 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:15 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:15 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:15 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:15 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:16 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:16 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:16 | 200 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:16 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:16 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:17 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:17 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:17 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:17 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:17 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:17 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:18 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:18 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:18 | 200 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:18 | 429 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:18 | 429 |       999.7µs |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:23 | 200 |      1.5609ms |             ::1 | GET      "/login"
+[GIN] 2023/08/15 - 20:09:23 | 404 |            0s |             ::1 | GET      "/assets/images/bg.svg"
+[GIN] 2023/08/15 - 20:09:23 | 404 |            0s |             ::1 | GET      "/assets/images/avatar.svg"
+[GIN] 2023/08/15 - 20:09:26 | 301 |            0s |             ::1 | POST     "/login"
+[GIN] 2023/08/15 - 20:09:26 | 200 |            0s |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:09:34 | 200 |      1.5463ms |             ::1 | GET      "/login"
+[GIN] 2023/08/15 - 20:10:22 | 200 |      1.6175ms |             ::1 | GET      "/login"
+[GIN] 2023/08/15 - 20:10:22 | 200 |      1.0004ms |             ::1 | GET      "/assets/images/bg.svg"
+[GIN] 2023/08/15 - 20:10:22 | 200 |       965.5µs |             ::1 | GET      "/assets/images/avatar.svg"
+[GIN] 2023/08/15 - 20:11:22 | 200 |      3.9974ms |             ::1 | GET      "/login"
+[GIN] 2023/08/15 - 20:11:22 | 304 |       854.6µs |             ::1 | GET      "/assets/images/bg.svg"
+[GIN] 2023/08/15 - 20:11:22 | 304 |       957.2µs |             ::1 | GET      "/assets/images/avatar.svg"
+[GIN] 2023/08/15 - 20:11:29 | 200 |      1.0594ms |             ::1 | GET      "/login"
+[GIN] 2023/08/15 - 20:11:29 | 304 |            0s |             ::1 | GET      "/assets/images/avatar.svg"
+[GIN] 2023/08/15 - 20:11:29 | 304 |       837.5µs |             ::1 | GET      "/assets/images/bg.svg"
+info: "
+Desligando o servidor..." Date: 15/08/2023 ás 20:12
+info: "Servidor desligado com sucesso." Date: 15/08/2023 ás 20:12
+info: "Desconectado do MongoDB com sucesso!" Date: 15/08/2023 ás 20:12
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] Loaded HTML Templates (3): 
+	- 
+	- error.html
+	- login.html
+
+[GIN-debug] GET    /assets/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (4 handlers)
+[GIN-debug] HEAD   /assets/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (4 handlers)
+[GIN-debug] GET    /docs/*any                --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (5 handlers)
+[GIN-debug] GET    /login                    --> github.com/kevinfinalboss/checklist-apps/router.SetupRouter.func1 (5 handlers)
+[GIN-debug] POST   /login                    --> github.com/kevinfinalboss/checklist-apps/pkg/controllers.Login (5 handlers)
+[GIN-debug] GET    /diag/health              --> github.com/kevinfinalboss/checklist-apps/pkg/controllers.HealthCheck (6 handlers)
+[GIN-debug] GET    /test/panic               --> github.com/kevinfinalboss/checklist-apps/router.SetupRouter.func2 (6 handlers)
+info: "Iniciando o servidor na porta 80..." Date: 15/08/2023 ás 20:23
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :80
+info: "Conectado ao MongoDB com sucesso!" Date: 15/08/2023 ás 20:23
+info: "Servidor rodando na porta 80" Date: 15/08/2023 ás 20:23
+info: "
+Desligando o servidor..." Date: 15/08/2023 ás 20:23
+info: "Servidor desligado com sucesso." Date: 15/08/2023 ás 20:23
+info: "Desconectado do MongoDB com sucesso!" Date: 15/08/2023 ás 20:23
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] Loaded HTML Templates (3): 
+	- 
+	- error.html
+	- login.html
+
+[GIN-debug] GET    /assets/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (4 handlers)
+[GIN-debug] HEAD   /assets/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (4 handlers)
+[GIN-debug] GET    /docs/*any                --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (5 handlers)
+[GIN-debug] GET    /login                    --> github.com/kevinfinalboss/checklist-apps/router.SetupRouter.func1 (5 handlers)
+[GIN-debug] POST   /login                    --> github.com/kevinfinalboss/checklist-apps/pkg/controllers.Login (5 handlers)
+[GIN-debug] GET    /diag/health              --> github.com/kevinfinalboss/checklist-apps/pkg/controllers.HealthCheck (6 handlers)
+[GIN-debug] GET    /test/panic               --> github.com/kevinfinalboss/checklist-apps/router.SetupRouter.func2 (6 handlers)
+info: "Iniciando o servidor na porta 80..." Date: 15/08/2023 ás 20:23
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :80
+info: "Conectado ao MongoDB com sucesso!" Date: 15/08/2023 ás 20:23
+info: "Servidor rodando na porta 80" Date: 15/08/2023 ás 20:23
+[GIN] 2023/08/15 - 20:23:38 | 200 |      3.3362ms |             ::1 | GET      "/login"
+[GIN] 2023/08/15 - 20:23:38 | 304 |            0s |             ::1 | GET      "/assets/images/bg.svg"
+[GIN] 2023/08/15 - 20:23:38 | 304 |            0s |             ::1 | GET      "/assets/images/avatar.svg"
+[GIN] 2023/08/15 - 20:23:42 | 401 |       576.7µs |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 20:23:47 | 301 |     162.953ms |             ::1 | POST     "/login"
+[GIN] 2023/08/15 - 20:23:47 | 200 |       615.3µs |             ::1 | GET      "/diag/health"
+info: "
+Desligando o servidor..." Date: 15/08/2023 ás 20:23
+info: "Servidor desligado com sucesso." Date: 15/08/2023 ás 20:23
+info: "Desconectado do MongoDB com sucesso!" Date: 15/08/2023 ás 20:24
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] Loaded HTML Templates (3): 
+	- 
+	- error.html
+	- login.html
+
+[GIN-debug] GET    /assets/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (4 handlers)
+[GIN-debug] HEAD   /assets/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (4 handlers)
+[GIN-debug] GET    /docs/*any                --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (5 handlers)
+[GIN-debug] GET    /login                    --> github.com/kevinfinalboss/checklist-apps/router.SetupRouter.func1 (5 handlers)
+[GIN-debug] POST   /login                    --> github.com/kevinfinalboss/checklist-apps/pkg/controllers.Login (5 handlers)
+[GIN-debug] GET    /diag/health              --> github.com/kevinfinalboss/checklist-apps/pkg/controllers.HealthCheck (6 handlers)
+[GIN-debug] GET    /test/panic               --> github.com/kevinfinalboss/checklist-apps/router.SetupRouter.func2 (6 handlers)
+info: "Iniciando o servidor na porta 80..." Date: 15/08/2023 ás 20:39
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :80
+info: "Conectado ao MongoDB com sucesso!" Date: 15/08/2023 ás 20:39
+info: "Servidor rodando na porta 80" Date: 15/08/2023 ás 20:39
+[GIN] 2023/08/15 - 20:39:32 | 200 |       998.7µs |             ::1 | GET      "/login"
+[GIN] 2023/08/15 - 20:39:33 | 304 |           1ms |             ::1 | GET      "/assets/images/bg.svg"
+[GIN] 2023/08/15 - 20:39:33 | 304 |            0s |             ::1 | GET      "/assets/images/avatar.svg"
+[GIN] 2023/08/15 - 20:41:12 | 200 |      1.1661ms |             ::1 | GET      "/login"
+[GIN] 2023/08/15 - 20:41:44 | 200 |      1.2868ms |             ::1 | GET      "/login"
+[GIN] 2023/08/15 - 20:41:46 | 401 |     80.9279ms |             ::1 | POST     "/login"
+[GIN] 2023/08/15 - 20:41:49 | 301 |    154.4337ms |             ::1 | POST     "/login"
+[GIN] 2023/08/15 - 20:41:49 | 200 |            0s |             ::1 | GET      "/diag/health"
+info: "
+Desligando o servidor..." Date: 15/08/2023 ás 20:41
+info: "Servidor desligado com sucesso." Date: 15/08/2023 ás 20:41
+info: "Desconectado do MongoDB com sucesso!" Date: 15/08/2023 ás 20:41
+info: "Iniciando o servidor na porta 80..." Date: 15/08/2023 ás 20:42
+info: "Conectado ao MongoDB com sucesso!" Date: 15/08/2023 ás 20:42
+info: "Servidor rodando na porta 80" Date: 15/08/2023 ás 20:42
+[GIN] 2023/08/15 - 20:42:26 | 200 |            0s |             ::1 | GET      "/login"
+[GIN] 2023/08/15 - 20:42:26 | 304 |            0s |             ::1 | GET      "/assets/js/login.js"
+[GIN] 2023/08/15 - 20:42:26 | 304 |            0s |             ::1 | GET      "/assets/images/wave.png"
+[GIN] 2023/08/15 - 20:42:26 | 200 |     110.437ms |             ::1 | GET      "/assets/css/login.css"
+[GIN] 2023/08/15 - 20:42:48 | 200 |            0s |             ::1 | GET      "/login"
+[GIN] 2023/08/15 - 20:42:48 | 304 |      1.0093ms |             ::1 | GET      "/assets/images/bg.svg"
+[GIN] 2023/08/15 - 20:42:48 | 304 |            0s |             ::1 | GET      "/assets/css/login.css"
+[GIN] 2023/08/15 - 20:42:48 | 304 |       230.5µs |             ::1 | GET      "/assets/images/avatar.svg"
+[GIN] 2023/08/15 - 20:42:53 | 200 |            0s |             ::1 | GET      "/login"
+info: "
+Desligando o servidor..." Date: 15/08/2023 ás 20:42
+info: "Servidor desligado com sucesso." Date: 15/08/2023 ás 20:42
+info: "Desconectado do MongoDB com sucesso!" Date: 15/08/2023 ás 20:42
+info: "Iniciando o servidor na porta 80..." Date: 15/08/2023 ás 20:43
+info: "Conectado ao MongoDB com sucesso!" Date: 15/08/2023 ás 20:43
+info: "Servidor rodando na porta 80" Date: 15/08/2023 ás 20:43
+[GIN] 2023/08/15 - 20:43:07 | 200 |       863.9µs |             ::1 | GET      "/login"
+[GIN] 2023/08/15 - 20:43:08 | 304 |       681.2µs |             ::1 | GET      "/assets/css/login.css"
+info: "
+Desligando o servidor..." Date: 15/08/2023 ás 20:50
+info: "Servidor desligado com sucesso." Date: 15/08/2023 ás 20:50
+info: "Desconectado do MongoDB com sucesso!" Date: 15/08/2023 ás 20:50
+info: "Iniciando o servidor na porta 80..." Date: 15/08/2023 ás 20:50
+info: "Conectado ao MongoDB com sucesso!" Date: 15/08/2023 ás 20:50
+info: "Servidor rodando na porta 80" Date: 15/08/2023 ás 20:50
+[GIN] 2023/08/15 - 20:50:58 | 301 |    168.4277ms |             ::1 | POST     "/login"
+[GIN] 2023/08/15 - 20:50:58 | 200 |       907.3µs |             ::1 | GET      "/home"
+[GIN] 2023/08/15 - 20:52:49 | 200 |       908.7µs |             ::1 | GET      "/home"
+info: "
+Desligando o servidor..." Date: 15/08/2023 ás 20:52
+info: "Servidor desligado com sucesso." Date: 15/08/2023 ás 20:52
+info: "Desconectado do MongoDB com sucesso!" Date: 15/08/2023 ás 20:52
+info: "Iniciando o servidor na porta 80..." Date: 15/08/2023 ás 20:52
+info: "Conectado ao MongoDB com sucesso!" Date: 15/08/2023 ás 20:52
+info: "Servidor rodando na porta 80" Date: 15/08/2023 ás 20:52
+[GIN] 2023/08/15 - 20:53:02 | 200 |       809.4µs |             ::1 | GET      "/home"
+info: "
+Desligando o servidor..." Date: 15/08/2023 ás 20:55
+info: "Servidor desligado com sucesso." Date: 15/08/2023 ás 20:55
+info: "Desconectado do MongoDB com sucesso!" Date: 15/08/2023 ás 20:55
+info: "Iniciando o servidor na porta 80..." Date: 15/08/2023 ás 20:55
+info: "Conectado ao MongoDB com sucesso!" Date: 15/08/2023 ás 20:55
+info: "Servidor rodando na porta 80" Date: 15/08/2023 ás 20:55
+[GIN] 2023/08/15 - 20:55:52 | 200 |            0s |             ::1 | GET      "/home"
+info: "
+Desligando o servidor..." Date: 15/08/2023 ás 20:58
+info: "Servidor desligado com sucesso." Date: 15/08/2023 ás 20:58
+info: "Desconectado do MongoDB com sucesso!" Date: 15/08/2023 ás 20:58
+info: "Iniciando o servidor na porta 80..." Date: 15/08/2023 ás 20:58
+info: "Conectado ao MongoDB com sucesso!" Date: 15/08/2023 ás 20:58
+info: "Servidor rodando na porta 80" Date: 15/08/2023 ás 20:58
+[GIN] 2023/08/15 - 20:58:11 | 200 |       468.9µs |             ::1 | GET      "/home"
+info: "
+Desligando o servidor..." Date: 15/08/2023 ás 21:01
+info: "Servidor desligado com sucesso." Date: 15/08/2023 ás 21:01
+info: "Desconectado do MongoDB com sucesso!" Date: 15/08/2023 ás 21:01
+info: "Iniciando o servidor na porta 80..." Date: 15/08/2023 ás 21:11
+info: "Conectado ao MongoDB com sucesso!" Date: 15/08/2023 ás 21:11
+info: "Servidor rodando na porta 80" Date: 15/08/2023 ás 21:11
+[GIN] 2023/08/15 - 21:13:07 | 200 |       438.4µs |             ::1 | GET      "/home"
+[GIN] 2023/08/15 - 21:13:11 | 200 |         909µs |             ::1 | GET      "/home"
+[GIN] 2023/08/15 - 21:13:12 | 429 |            0s |             ::1 | GET      "/home"
+[GIN] 2023/08/15 - 21:13:14 | 200 |            0s |             ::1 | GET      "/home"
+[GIN] 2023/08/15 - 21:13:24 | 200 |            0s |             ::1 | GET      "/home"
+[GIN] 2023/08/15 - 21:13:45 | 200 |       775.4µs |             ::1 | GET      "/home"
+info: "
+Desligando o servidor..." Date: 15/08/2023 ás 21:14
+info: "Servidor desligado com sucesso." Date: 15/08/2023 ás 21:14
+info: "Desconectado do MongoDB com sucesso!" Date: 15/08/2023 ás 21:14
+info: "Iniciando o servidor na porta 80..." Date: 15/08/2023 ás 21:14
+info: "Conectado ao MongoDB com sucesso!" Date: 15/08/2023 ás 21:14
+info: "Servidor rodando na porta 80" Date: 15/08/2023 ás 21:14
+[GIN] 2023/08/15 - 21:14:21 | 200 |         521µs |             ::1 | GET      "/home"
+[GIN] 2023/08/15 - 21:14:22 | 429 |            0s |             ::1 | GET      "/home"
+[GIN] 2023/08/15 - 21:14:23 | 429 |            0s |             ::1 | GET      "/home"
+[GIN] 2023/08/15 - 21:14:24 | 200 |       797.1µs |             ::1 | GET      "/home"
+[GIN] 2023/08/15 - 21:14:36 | 200 |            0s |             ::1 | GET      "/home"
+[GIN] 2023/08/15 - 21:14:42 | 200 |       681.9µs |             ::1 | GET      "/diag/health"
+[GIN] 2023/08/15 - 21:14:47 | 200 |       409.1µs |             ::1 | GET      "/home"
+[GIN] 2023/08/15 - 21:15:38 | 200 |            0s |             ::1 | GET      "/home"
+[GIN] 2023/08/15 - 21:15:39 | 429 |            0s |             ::1 | GET      "/home"
+[GIN] 2023/08/15 - 21:15:40 | 200 |       602.9µs |             ::1 | GET      "/home"
+[GIN] 2023/08/15 - 21:15:43 | 200 |       312.5µs |             ::1 | GET      "/login"
+[GIN] 2023/08/15 - 21:15:44 | 200 |     98.1056ms |             ::1 | GET      "/assets/css/login.css"
+[GIN] 2023/08/15 - 21:15:44 | 304 |            0s |             ::1 | GET      "/assets/images/bg.svg"
+[GIN] 2023/08/15 - 21:15:44 | 304 |            0s |             ::1 | GET      "/assets/images/avatar.svg"
+[GIN] 2023/08/15 - 21:15:47 | 200 |         704µs |             ::1 | GET      "/home"
+info: "
+Desligando o servidor..." Date: 15/08/2023 ás 21:15
+info: "Servidor desligado com sucesso." Date: 15/08/2023 ás 21:15
+info: "Desconectado do MongoDB com sucesso!" Date: 15/08/2023 ás 21:15

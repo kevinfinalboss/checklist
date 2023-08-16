@@ -1,0 +1,62 @@
+info: "Iniciando o servidor na porta 80..." Date: 14/08/2023
+info: "Conectado ao MongoDB com sucesso!" Date: 14/08/2023
+info: "
+Desligando o servidor..." Date: 14/08/2023
+info: "Servidor desligado com sucesso." Date: 14/08/2023
+info: "Desconectado do MongoDB com sucesso!" Date: 14/08/2023
+info: "Iniciando o servidor na porta 80..." Date: 14/08/2023
+info: "Conectado ao MongoDB com sucesso!" Date: 14/08/2023
+info: "Servidor rodando na porta 80" Date: 14/08/2023
+info: "
+Desligando o servidor..." Date: 14/08/2023
+info: "Servidor desligado com sucesso." Date: 14/08/2023
+info: "Desconectado do MongoDB com sucesso!" Date: 14/08/2023
+info: "Iniciando o servidor na porta 80..." Date: 14/08/2023 ás 15:42
+info: "Conectado ao MongoDB com sucesso!" Date: 14/08/2023 ás 15:42
+info: "Servidor rodando na porta 80" Date: 14/08/2023 ás 15:42
+info: "Desligando o servidor..." Date: 14/08/2023 ás 15:42
+info: "Servidor desligado com sucesso." Date: 14/08/2023 ás 15:42
+info: "Desconectado do MongoDB com sucesso!" Date: 14/08/2023 ás 15:42
+info: "Iniciando o servidor na porta 80..." Date: 14/08/2023 ás 17:26
+info: "Conectado ao MongoDB com sucesso!" Date: 14/08/2023 ás 17:26
+info: "Servidor rodando na porta 80" Date: 14/08/2023 ás 17:26
+info: "E-mail enviado com sucesso!" Date: 14/08/2023 ás 17:26
+[GIN] 2023/08/14 - 17:26:43 | 500 |    2.9495516s |             ::1 | GET      "/test/panic"
+info: "
+Desligando o servidor..." Date: 14/08/2023 ás 17:28
+info: "Servidor desligado com sucesso." Date: 14/08/2023 ás 17:28
+info: "Desconectado do MongoDB com sucesso!" Date: 14/08/2023 ás 17:28
+info: "Iniciando o servidor na porta 80..." Date: 14/08/2023 ás 17:58
+info: "Conectado ao MongoDB com sucesso!" Date: 14/08/2023 ás 17:58
+info: "Servidor rodando na porta 80" Date: 14/08/2023 ás 17:58
+info: "E-mail enviado com sucesso!" Date: 14/08/2023 ás 17:58
+error: "Resposta de erro do Discord:400 Bad Request" Date: 14/08/2023 ás 17:58
+[GIN] 2023/08/14 - 17:58:40 | 500 |    3.9155512s |             ::1 | GET      "/test/panic"
+info: "
+Desligando o servidor..." Date: 14/08/2023 ás 19:33
+info: "Servidor desligado com sucesso." Date: 14/08/2023 ás 19:33
+info: "Desconectado do MongoDB com sucesso!" Date: 14/08/2023 ás 19:33
+info: "Iniciando o servidor na porta 80..." Date: 14/08/2023 ás 19:33
+info: "Conectado ao MongoDB com sucesso!" Date: 14/08/2023 ás 19:33
+info: "Servidor rodando na porta 80" Date: 14/08/2023 ás 19:33
+info: "E-mail enviado com sucesso!" Date: 14/08/2023 ás 19:34
+[GIN] 2023/08/14 - 19:34:05 | 500 |    3.2185035s |             ::1 | GET      "/test/panic"
+info: "
+Desligando o servidor..." Date: 14/08/2023 ás 19:37
+info: "Servidor desligado com sucesso." Date: 14/08/2023 ás 19:37
+info: "Desconectado do MongoDB com sucesso!" Date: 14/08/2023 ás 19:37
+info: "Iniciando o servidor na porta 80..." Date: 14/08/2023 ás 19:37
+info: "Conectado ao MongoDB com sucesso!" Date: 14/08/2023 ás 19:37
+info: "Servidor rodando na porta 80" Date: 14/08/2023 ás 19:37
+[GIN] 2023/08/14 - 19:38:04 | 500 |    3.0518091s |             ::1 | GET      "/test/panic"
+info: "
+Desligando o servidor..." Date: 14/08/2023 ás 19:38
+info: "Servidor desligado com sucesso." Date: 14/08/2023 ás 19:38
+info: "Desconectado do MongoDB com sucesso!" Date: 14/08/2023 ás 19:38
+info: "Iniciando o servidor na porta 80..." Date: 14/08/2023 ás 19:52
+info: "Conectado ao MongoDB com sucesso!" Date: 14/08/2023 ás 19:52
+info: "Servidor rodando na porta 80" Date: 14/08/2023 ás 19:52
+info: "
+Desligando o servidor..." Date: 14/08/2023 ás 19:59
+info: "Servidor desligado com sucesso." Date: 14/08/2023 ás 19:59
+info: "Desconectado do MongoDB com sucesso!" Date: 14/08/2023 ás 19:59
