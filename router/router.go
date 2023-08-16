@@ -34,6 +34,10 @@ func SetupRouter() *gin.Engine {
 		authorized.GET("/test/panic", func(c *gin.Context) {
 			panic("Isso é um teste de pânico!")
 		})
+
+		authorized.GET("/home", func(c *gin.Context) {
+			c.HTML(http.StatusOK, "home.html", nil)
+		})
 	}
 
 	return r
