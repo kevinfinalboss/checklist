@@ -16,18 +16,11 @@ const (
 func AuthMiddleware() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		cookie, err := c.Cookie("auth_token")
-		if err != nil {
-			c.JSON(http.StatusUnauthorized, ErrUnauthorized)
+		if err != nil || !isValidToken(cookie) {
+			c.Redirect(http.StatusSeeOther, "/login?session_expired=true")
 			c.Abort()
 			return
 		}
-
-		if !isValidToken(cookie) {
-			c.JSON(http.StatusUnauthorized, ErrUnauthorized)
-			c.Abort()
-			return
-		}
-
 		c.Next()
 	}
 }
