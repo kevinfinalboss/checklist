@@ -19,9 +19,18 @@ jobs:
       SMTP_HOST: ${{ secrets.SMTP_HOST }}
       SMTP_FROM: ${{ secrets.SMTP_FROM }}
       MONGO_URL: ${{ secrets.MONGO_URL }}
+      DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
+
+      - name: Cache Go modules
+        uses: actions/cache@v2
+        with:
+          path: ~/go/pkg/mod
+          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-go-
 
       - name: Set up Go
         uses: actions/setup-go@v2
@@ -46,3 +55,6 @@ jobs:
 
       - name: Build Docker Image
         run: docker build -t checklist-apps .
+
+      - name: Notify Discord
+        run: curl -X POST -H "Content-Type: application/json" --data '{"content":"Build Successful!"}' ${{ secrets.DISCORD_WEBHOOK_URL }}
