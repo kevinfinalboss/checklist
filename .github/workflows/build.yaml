@@ -55,11 +55,3 @@ jobs:
 
       - name: Build Docker Image
         run: docker build -t checklist-apps .
-
-      - name: Notify Discord
-        env:
-          DISCORD_MESSAGE: '{"content":"Build Successful!"}'
-          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
-        run: |
-          curl -X POST -H "Content-Type: application/json" --data "$DISCORD_MESSAGE" $DISCORD_WEBHOOK_URL
-      
