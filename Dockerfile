@@ -15,8 +15,10 @@ RUN apk --no-cache add ca-certificates
 
 COPY --from=builder /app/checklist-apps /checklist-apps
 
-COPY configs /app/configs
-COPY templates /app/templates
+COPY .env /.env
+
+COPY configs /configs
+COPY templates /templates
 
 ENV PORT=80
 
