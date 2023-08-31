@@ -9,6 +9,7 @@ type User struct {
 	Password        string             `bson:"password"`
 	ConfirmPassword string             `bson:"-"`
 	CPF             string             `bson:"cpf"`
+	TelephoneNumber string             `bson:"telephoneNumber"`
 	BirthDate       string             `bson:"birthDate"`
 	Address         string             `bson:"address"`
 }
