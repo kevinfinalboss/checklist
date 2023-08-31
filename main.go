@@ -39,7 +39,7 @@ func main() {
 		port = "8080"
 	}
 
-	asciiFigure := figure.NewFigure("CheckList", "", true)
+	asciiFigure := figure.NewFigure("AuthAPI", "", true)
 	asciiFigure.Print()
 
 	utils.Logger.Infof("Iniciando o servidor na porta %s...", port)
