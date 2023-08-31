@@ -38,12 +38,13 @@ func Login(c *gin.Context) {
 
 func validateUserFields(user *models.User) []string {
 	fields := map[string]string{
-		"Name":      user.Name,
-		"Email":     user.Email,
-		"Password":  user.Password,
-		"CPF":       user.CPF,
-		"BirthDate": user.BirthDate,
-		"Address":   user.Address,
+		"Name":            user.Name,
+		"Email":           user.Email,
+		"Password":        user.Password,
+		"CPF":             user.CPF,
+		"BirthDate":       user.BirthDate,
+		"TelephoneNumber": user.TelephoneNumber,
+		"Address":         user.Address,
 	}
 
 	missingFields := []string{}
