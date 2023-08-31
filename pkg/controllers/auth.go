@@ -19,23 +19,23 @@ type Claims struct {
 	jwt.StandardClaims
 }
 
-func validateUserFields(user *models.User) []string {
-	fields := map[string]string{
-		"Name":      user.Name,
-		"Email":     user.Email,
-		"Password":  user.Password,
-		"CPF":       user.CPF,
-		"BirthDate": user.BirthDate,
-		"Address":   user.Address,
+func Login(c *gin.Context) {
+	email := c.PostForm("email")
+	password := c.PostForm("password")
+
+	if isValidUser(email, password) {
+		token, err := generateToken(email)
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "Erro ao gerar token"})
+			return
+		}
+
+		setCookie(c.Writer, token)
+		c.Redirect(http.StatusMovedPermanently, "/home?login_success=true")
+		return
 	}
 
-	missingFields := []string{}
-	for field, value := range fields {
-		if value == "" {
-			missingFields = append(missingFields, field)
-		}
-	}
-	return missingFields
+	c.Redirect(http.StatusSeeOther, "/login?invalid_credentials=true")
 }
 
 func Register(c *gin.Context) {
@@ -45,7 +45,26 @@ func Register(c *gin.Context) {
 		return
 	}
 
-	missingFields := validateUserFields(&user)
+	missingFields := []string{}
+	if user.Name == "" {
+		missingFields = append(missingFields, "Name")
+	}
+	if user.Email == "" {
+		missingFields = append(missingFields, "Email")
+	}
+	if user.Password == "" {
+		missingFields = append(missingFields, "Password")
+	}
+	if user.CPF == "" {
+		missingFields = append(missingFields, "CPF")
+	}
+	if user.BirthDate == "" {
+		missingFields = append(missingFields, "BirthDate")
+	}
+	if user.Address == "" {
+		missingFields = append(missingFields, "Address")
+	}
+
 	if len(missingFields) > 0 {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "Campos obrigatórios faltando: " + strings.Join(missingFields, ", ")})
 		return
