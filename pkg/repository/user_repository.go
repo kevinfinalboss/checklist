@@ -14,16 +14,22 @@ func CreateUser(user *models.User) error {
 	return err
 }
 
-func FindUserByCPF(hashedCPF string) (*models.User, error) {
-	var user models.User
-	collection := connection.Client.Database("checklist-apps").Collection("users")
-	err := collection.FindOne(context.Background(), bson.M{"cpf": hashedCPF}).Decode(&user)
-	return &user, err
-}
-
 func FindUserByEmail(email string) (*models.User, error) {
 	var user models.User
 	collection := connection.Client.Database("checklist-apps").Collection("users")
 	err := collection.FindOne(context.Background(), bson.M{"email": email}).Decode(&user)
-	return &user, err
+	if err != nil {
+		return nil, err
+	}
+	return &user, nil
+}
+
+func FindUserByCPF(hashedCPF string) (*models.User, error) {
+	var user models.User
+	collection := connection.Client.Database("checklist-apps").Collection("users")
+	err := collection.FindOne(context.Background(), bson.M{"cpf": hashedCPF}).Decode(&user)
+	if err != nil {
+		return nil, err
+	}
+	return &user, nil
 }
