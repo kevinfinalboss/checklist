@@ -19,14 +19,6 @@ var (
 )
 
 func CreateUser(user *models.User) error {
-	if existingUser, _ := repository.FindUserByEmail(user.Email); existingUser != nil {
-		return ErrEmailExists
-	}
-
-	if existingUser, _ := repository.FindUserByCPF(user.CPF); existingUser != nil {
-		return ErrCPFExists
-	}
-
 	if !isValidPassword(user.Password) {
 		return ErrWeakPassword
 	}
@@ -35,11 +27,20 @@ func CreateUser(user *models.User) error {
 		return ErrInvalidCPF
 	}
 
+	existingUserByEmail, _ := repository.FindUserByEmail(user.Email)
+	if existingUserByEmail != nil {
+		return ErrEmailExists
+	}
+
+	hashedCPF, _ := bcrypt.GenerateFromPassword([]byte(formatCPF(user.CPF)), bcrypt.DefaultCost)
+	existingUserByCPF, _ := repository.FindUserByCPF(string(hashedCPF))
+	if existingUserByCPF != nil {
+		return ErrCPFExists
+	}
+
 	hashedPassword, _ := bcrypt.GenerateFromPassword([]byte(user.Password), bcrypt.DefaultCost)
 	user.Password = string(hashedPassword)
 
-	formattedCPF := formatCPF(user.CPF)
-	hashedCPF, _ := bcrypt.GenerateFromPassword([]byte(formattedCPF), bcrypt.DefaultCost)
 	user.CPF = string(hashedCPF)
 
 	return repository.CreateUser(user)
