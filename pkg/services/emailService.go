@@ -17,7 +17,7 @@ func SendEmail(subject, errorMessage string) error {
 	host := viper.GetString("smtp.host")
 	port := viper.GetString("smtp.port")
 
-	templatePath := filepath.Join("templates", "error.html")
+	templatePath := filepath.Join("templates", "emails", "error.html")
 
 	tmpl, err := template.ParseFiles(templatePath)
 	if err != nil {
