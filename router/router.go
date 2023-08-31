@@ -13,35 +13,49 @@ import (
 
 func SetupRouter() *gin.Engine {
 	r := gin.Default()
-	r.Use(middlewares.ErrorHandler())
-	r.LoadHTMLGlob("./templates/*")
-	r.Static("/assets", "./assets")
 
+	r.Use(middlewares.ErrorHandler())
+
+	r.LoadHTMLGlob("./templates/**/*")
+
+	r.Static("/assets", "./assets")
+	r.Static("/emails", "./emails")
+
+	publicRoutes(r)
+
+	authorizedRoutes(r)
+
+	return r
+}
+
+func publicRoutes(r *gin.Engine) {
 	r.GET("/login", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "login.html", nil)
 	})
-
 	r.POST("/register", controllers.Register)
-
 	r.POST("/login", controllers.Login)
+}
 
+func authorizedRoutes(r *gin.Engine) {
 	authorized := r.Group("/")
 	authorized.Use(middlewares.AuthMiddleware())
 	{
-		authorized.GET("/docs", func(c *gin.Context) {
-			c.Redirect(http.StatusMovedPermanently, "/docs/index.html")
-		})
+		authorized.GET("/docs", redirectToDocs)
 		authorized.GET("/docs/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
-
 		authorized.GET("/diag/health", controllers.HealthCheck)
-		authorized.GET("/test/panic", func(c *gin.Context) {
-			panic("Isso é um teste de pânico!")
-		})
-
-		authorized.GET("/home", func(c *gin.Context) {
-			c.HTML(http.StatusOK, "home.html", nil)
-		})
+		authorized.GET("/test/panic", testPanic)
+		authorized.GET("/home", homePage)
 	}
+}
 
-	return r
+func redirectToDocs(c *gin.Context) {
+	c.Redirect(http.StatusMovedPermanently, "/docs/index.html")
+}
+
+func testPanic(c *gin.Context) {
+	panic("Isso é um teste de pânico!")
+}
+
+func homePage(c *gin.Context) {
+	c.HTML(http.StatusOK, "home.html", nil)
 }
