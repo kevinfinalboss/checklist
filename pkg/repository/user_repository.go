@@ -33,3 +33,22 @@ func FindUserByCPF(hashedCPF string) (*models.User, error) {
 	}
 	return &user, nil
 }
+
+func FindAllUsers() ([]models.User, error) {
+	var users []models.User
+	collection := connection.Client.Database("checklist-apps").Collection("users")
+	cursor, err := collection.Find(context.Background(), bson.M{})
+	if err != nil {
+		return nil, err
+	}
+	defer cursor.Close(context.Background())
+	for cursor.Next(context.Background()) {
+		var user models.User
+		err := cursor.Decode(&user)
+		if err != nil {
+			return nil, err
+		}
+		users = append(users, user)
+	}
+	return users, nil
+}
