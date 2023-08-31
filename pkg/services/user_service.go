@@ -63,6 +63,13 @@ func CreateUser(user *models.User) error {
 		return errors.New("Usuário criado, mas falha ao enviar SMS: " + err.Error())
 	}
 
+	webhookTitle := "Nova Conta Criada"
+	webhookDescription := fmt.Sprintf("Uma nova conta foi criada para o usuário %s com o e-mail %s.", user.Name, user.Email)
+	err = SendDiscordWebhook(webhookTitle, webhookDescription)
+	if err != nil {
+		return errors.New("Usuário criado, mas falha ao enviar alerta via webhook: " + err.Error())
+	}
+
 	return nil
 }
 
