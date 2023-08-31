@@ -33,13 +33,3 @@ func FindUserByCPF(hashedCPF string) (*models.User, error) {
 	}
 	return &user, nil
 }
-
-func FindUserByHashedCPFForCheck(hashedCPFForCheck string) (*models.User, error) {
-	var user models.User
-	collection := connection.Client.Database("checklist-apps").Collection("users")
-	err := collection.FindOne(context.Background(), bson.M{"hashedCPFForCheck": hashedCPFForCheck}).Decode(&user)
-	if err != nil {
-		return nil, err
-	}
-	return &user, nil
-}
