@@ -6,6 +6,7 @@ import (
 	"runtime/debug"
 
 	"github.com/gin-gonic/gin"
+	"github.com/kevinfinalboss/checklist-apps/pkg/models"
 	"github.com/kevinfinalboss/checklist-apps/pkg/services"
 )
 
@@ -21,8 +22,20 @@ func ErrorHandler() gin.HandlerFunc {
 				services.SendEmail(subject, body)
 
 				title := "Erro Interno no Servidor"
-				description := "Ocorreu um erro no servidor: " + errMsg
-				services.SendDiscordWebhook(title, description)
+				description := "Ocorreu um erro no servidor."
+				fields := []models.EmbedField{
+					{
+						Name:   "Erro",
+						Value:  fmt.Sprintf("%v", err),
+						Inline: false,
+					},
+					{
+						Name:   "Stack Trace",
+						Value:  stackTrace,
+						Inline: false,
+					},
+				}
+				services.SendDiscordWebhook(title, description, fields)
 
 				c.JSON(http.StatusInternalServerError, gin.H{
 					"status": http.StatusInternalServerError,
