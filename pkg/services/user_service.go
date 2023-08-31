@@ -1,8 +1,9 @@
 package services
 
 import (
+	"crypto/sha256"
+	"encoding/hex"
 	"errors"
-	"fmt"
 	"regexp"
 	"strings"
 
@@ -37,38 +38,27 @@ func CreateUser(user *models.User) error {
 		return ErrEmailExists
 	}
 
-	hashedCPF, _ := bcrypt.GenerateFromPassword([]byte(formatCPF(user.CPF)), bcrypt.DefaultCost)
+	hash := sha256.Sum256([]byte(user.CPF))
+	user.HashedCPFForCheck = hex.EncodeToString(hash[:])
+	existingUserByCPFCheck, _ := repository.FindUserByHashedCPFForCheck(user.HashedCPFForCheck)
 
-	existingUserByCPF, _ := repository.FindUserByCPF(string(hashedCPF))
-	if existingUserByCPF != nil {
+	if existingUserByCPFCheck != nil {
 		return ErrCPFExists
 	}
 
 	hashedPassword, _ := bcrypt.GenerateFromPassword([]byte(user.Password), bcrypt.DefaultCost)
-
 	user.Password = string(hashedPassword)
-	user.CPF = string(hashedCPF)
-
 	return repository.CreateUser(user)
 }
 
 func isValidPassword(password string) bool {
-	if len(password) < 6 || len(password) > 20 {
-		return false
-	}
-
 	hasUpper := strings.ContainsAny(password, "ABCDEFGHIJKLMNOPQRSTUVWXYZ")
 	hasLower := strings.ContainsAny(password, "abcdefghijklmnopqrstuvwxyz")
 	hasSpecial := strings.ContainsAny(password, "@$!%*?&")
 	hasNumber := regexp.MustCompile(`[0-9]`).MatchString(password)
-
 	return hasUpper && hasLower && hasSpecial && hasNumber
 }
 
 func isValidCPF(cpf string) bool {
 	return len(cpf) == 11
-}
-
-func formatCPF(cpf string) string {
-	return fmt.Sprintf("%s.%s.%s-%s", cpf[0:3], cpf[3:6], cpf[6:9], cpf[9:11])
 }
