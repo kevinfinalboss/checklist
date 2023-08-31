@@ -7,6 +7,7 @@ import (
 	"github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"
 	"github.com/kevinfinalboss/checklist-apps/pkg/controllers"
+	"github.com/kevinfinalboss/checklist-apps/pkg/services"
 )
 
 const (
@@ -26,7 +27,7 @@ func AuthMiddleware() gin.HandlerFunc {
 }
 
 func isValidToken(cookie string) bool {
-	token, err := jwt.ParseWithClaims(cookie, &controllers.Claims{}, func(token *jwt.Token) (interface{}, error) {
+	token, err := jwt.ParseWithClaims(cookie, &services.Claims{}, func(token *jwt.Token) (interface{}, error) {
 		return []byte(os.Getenv("JWT_SECRET")), nil
 	})
 
