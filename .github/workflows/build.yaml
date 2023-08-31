@@ -11,18 +11,20 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      PORT: ${{ secrets.PORT }}
-      GIN_MODE: ${{ secrets.GIN_MODE }}
-      SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
-      SMTP_PORT: ${{ secrets.SMTP_PORT }}
-      SMTP_HOST: ${{ secrets.SMTP_HOST }}
-      SMTP_FROM: ${{ secrets.SMTP_FROM }}
-      MONGO_URL: ${{ secrets.MONGO_URL }}
-      DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
+
+      - name: Create .env file
+        run: |
+          echo PORT=${{ secrets.PORT }} >> .env
+          echo GIN_MODE=${{ secrets.GIN_MODE }} >> .env
+          echo SMTP_PASSWORD=${{ secrets.SMTP_PASSWORD }} >> .env
+          echo SMTP_PORT=${{ secrets.SMTP_PORT }} >> .env
+          echo SMTP_HOST=${{ secrets.SMTP_HOST }} >> .env
+          echo SMTP_FROM=${{ secrets.SMTP_FROM }} >> .env
+          echo MONGO_URL=${{ secrets.MONGO_URL }} >> .env
+          echo DISCORD_WEBHOOK_URL=${{ secrets.DISCORD_WEBHOOK_URL }} >> .env
 
       - name: Cache Go modules
         uses: actions/cache@v2
@@ -54,4 +56,4 @@ jobs:
         run: ./hadolint Dockerfile || true
 
       - name: Build Docker Image
-        run: docker build -t checklist-apps .
+        run: docker build --build-arg .env=.env -t checklist-apps .
