@@ -6,7 +6,6 @@ import (
 
 	"github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"
-	"github.com/kevinfinalboss/checklist-apps/pkg/controllers"
 	"github.com/kevinfinalboss/checklist-apps/pkg/services"
 )
 
@@ -35,7 +34,7 @@ func isValidToken(cookie string) bool {
 		return false
 	}
 
-	if _, ok := token.Claims.(*controllers.Claims); ok && token.Valid {
+	if _, ok := token.Claims.(*services.Claims); ok && token.Valid {
 		return true
 	}
 
