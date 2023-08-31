@@ -4,9 +4,9 @@ import (
 	"crypto/sha256"
 	"encoding/hex"
 	"errors"
-	"fmt"
 	"regexp"
 	"strings"
+	"time"
 
 	"github.com/kevinfinalboss/checklist-apps/pkg/models"
 	"github.com/kevinfinalboss/checklist-apps/pkg/repository"
@@ -57,15 +57,36 @@ func CreateUser(user *models.User) error {
 		return err
 	}
 
-	smsMessage := fmt.Sprintf("Olá, %s! Sua conta na KevinDev foi criada com sucesso!", user.Name)
-	err = SendSms(user.TelephoneNumber, smsMessage)
-	if err != nil {
-		return errors.New("Usuário criado, mas falha ao enviar SMS: " + err.Error())
-	}
+	//smsMessage := fmt.Sprintf("Olá, %s! Sua conta na KevinDev foi criada com sucesso!", user.Name)
+	//err = SendSms(user.TelephoneNumber, smsMessage)
+	//if err != nil {
+	//	return errors.New("Usuário criado, mas falha ao enviar SMS: " + err.Error())
+	//}
+
+	currentTime := time.Now()
+	formattedTime := currentTime.Format("02/01/2006 às 15:04")
 
 	webhookTitle := "Nova Conta Criada"
-	webhookDescription := fmt.Sprintf("Uma nova conta foi criada para o usuário %s com o e-mail %s.", user.Name, user.Email)
-	err = SendDiscordWebhook(webhookTitle, webhookDescription)
+	webhookDescription := "Detalhes da nova conta criada:"
+	webhookFields := []models.EmbedField{
+		{
+			Name:   "Nome",
+			Value:  user.Name,
+			Inline: true,
+		},
+		{
+			Name:   "Email",
+			Value:  user.Email,
+			Inline: true,
+		},
+		{
+			Name:   "Data de Criação",
+			Value:  formattedTime,
+			Inline: true,
+		},
+	}
+
+	err = SendDiscordWebhook(webhookTitle, webhookDescription, webhookFields)
 	if err != nil {
 		return errors.New("Usuário criado, mas falha ao enviar alerta via webhook: " + err.Error())
 	}
