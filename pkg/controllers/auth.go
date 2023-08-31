@@ -64,6 +64,11 @@ func Register(c *gin.Context) {
 		return
 	}
 
+	if user.Password != user.ConfirmPassword {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "As senhas não coincidem"})
+		return
+	}
+
 	missingFields := validateUserFields(&user)
 	if len(missingFields) > 0 {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "Campos obrigatórios faltando: " + strings.Join(missingFields, ", ")})
