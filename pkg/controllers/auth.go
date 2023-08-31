@@ -3,6 +3,7 @@ package controllers
 import (
 	"net/http"
 	"os"
+	"strings"
 	"time"
 
 	"github.com/dgrijalva/jwt-go"
@@ -18,23 +19,23 @@ type Claims struct {
 	jwt.StandardClaims
 }
 
-func Login(c *gin.Context) {
-	email := c.PostForm("email")
-	password := c.PostForm("password")
-
-	if isValidUser(email, password) {
-		token, err := generateToken(email)
-		if err != nil {
-			c.JSON(http.StatusInternalServerError, gin.H{"error": "Erro ao gerar token"})
-			return
-		}
-
-		setCookie(c.Writer, token)
-		c.Redirect(http.StatusMovedPermanently, "/home?login_success=true")
-		return
+func validateUserFields(user *models.User) []string {
+	fields := map[string]string{
+		"Name":      user.Name,
+		"Email":     user.Email,
+		"Password":  user.Password,
+		"CPF":       user.CPF,
+		"BirthDate": user.BirthDate,
+		"Address":   user.Address,
 	}
 
-	c.Redirect(http.StatusSeeOther, "/login?invalid_credentials=true")
+	missingFields := []string{}
+	for field, value := range fields {
+		if value == "" {
+			missingFields = append(missingFields, field)
+		}
+	}
+	return missingFields
 }
 
 func Register(c *gin.Context) {
@@ -44,8 +45,14 @@ func Register(c *gin.Context) {
 		return
 	}
 
+	missingFields := validateUserFields(&user)
+	if len(missingFields) > 0 {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Campos obrigatórios faltando: " + strings.Join(missingFields, ", ")})
+		return
+	}
+
 	if err := services.CreateUser(&user); err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
 
