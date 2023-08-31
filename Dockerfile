@@ -15,8 +15,6 @@ RUN apk --no-cache add ca-certificates
 
 COPY --from=builder /app/checklist-apps /checklist-apps
 
-COPY .env /.env
-
 COPY configs /configs
 COPY templates /templates
 
