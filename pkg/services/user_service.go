@@ -12,13 +12,18 @@ import (
 )
 
 var (
-	ErrWeakPassword = errors.New("A senha deve ter entre 6 e 20 caracteres, incluir pelo menos uma letra maiúscula, um número e um caractere especial.")
-	ErrInvalidCPF   = errors.New("CPF inválido")
-	ErrEmailExists  = errors.New("E-mail já cadastrado")
-	ErrCPFExists    = errors.New("CPF já cadastrado")
+	ErrWeakPassword     = errors.New("A senha deve ter entre 6 e 20 caracteres, incluir pelo menos uma letra maiúscula, um número e um caractere especial.")
+	ErrInvalidCPF       = errors.New("CPF inválido")
+	ErrEmailExists      = errors.New("E-mail já cadastrado")
+	ErrCPFExists        = errors.New("CPF já cadastrado")
+	ErrPasswordMismatch = errors.New("As senhas não coincidem")
 )
 
 func CreateUser(user *models.User) error {
+	if user.Password != user.ConfirmPassword {
+		return ErrPasswordMismatch
+	}
+
 	if !isValidPassword(user.Password) {
 		return ErrWeakPassword
 	}
@@ -32,15 +37,15 @@ func CreateUser(user *models.User) error {
 		return ErrEmailExists
 	}
 
-	hashedCPF, _ := bcrypt.GenerateFromPassword([]byte(formatCPF(user.CPF)), bcrypt.DefaultCost)
-	existingUserByCPF, _ := repository.FindUserByCPF(string(hashedCPF))
+	existingUserByCPF, _ := repository.FindUserByCPF(user.CPF)
 	if existingUserByCPF != nil {
 		return ErrCPFExists
 	}
 
+	hashedCPF, _ := bcrypt.GenerateFromPassword([]byte(formatCPF(user.CPF)), bcrypt.DefaultCost)
 	hashedPassword, _ := bcrypt.GenerateFromPassword([]byte(user.Password), bcrypt.DefaultCost)
-	user.Password = string(hashedPassword)
 
+	user.Password = string(hashedPassword)
 	user.CPF = string(hashedCPF)
 
 	return repository.CreateUser(user)
