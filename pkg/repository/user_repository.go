@@ -14,10 +14,10 @@ func CreateUser(user *models.User) error {
 	return err
 }
 
-func FindUserByCPF(cpf string) (*models.User, error) {
+func FindUserByCPF(hashedCPF string) (*models.User, error) {
 	var user models.User
 	collection := connection.Client.Database("checklist-apps").Collection("users")
-	err := collection.FindOne(context.Background(), bson.M{"cpf": cpf}).Decode(&user)
+	err := collection.FindOne(context.Background(), bson.M{"cpf": hashedCPF}).Decode(&user)
 	return &user, err
 }
 
