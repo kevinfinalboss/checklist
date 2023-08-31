@@ -26,7 +26,7 @@ window.onload = function() {
 	if (sessionExpired === 'true') {
 		showNotification('Sessão Expirada', 'red');
 	} else if (invalidCredentials === 'true') {
-		showNotification('Usuário ou Senha Inválida', 'red');
+		showNotification('Email ou Senha Inválida', 'red');
 	} else if (loginSuccess === 'true') {
 		showNotification('Login Realizado, Redirecionando...', 'green');
 	}
