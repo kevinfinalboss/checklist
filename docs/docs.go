@@ -35,48 +35,6 @@ const docTemplate = `{
                     }
                 }
             }
-        },
-        "/login": {
-            "post": {
-                "description": "Autentica o usuário com base no nome de usuário e senha fornecidos e define um cookie de autenticação",
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "Autenticação"
-                ],
-                "summary": "Realizar login do usuário",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "description": "Nome de usuário",
-                        "name": "username",
-                        "in": "formData",
-                        "required": true
-                    },
-                    {
-                        "type": "string",
-                        "description": "Senha",
-                        "name": "password",
-                        "in": "formData",
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "301": {
-                        "description": "Redireciona para a página inicial com sucesso no login",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    "303": {
-                        "description": "Redireciona para a página de login com credenciais inválidas",
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                }
-            }
         }
     }
 }`
