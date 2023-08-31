@@ -14,9 +14,19 @@ import (
 var (
 	ErrWeakPassword = errors.New("A senha deve ter entre 6 e 20 caracteres, incluir pelo menos uma letra maiúscula, um número e um caractere especial.")
 	ErrInvalidCPF   = errors.New("CPF inválido")
+	ErrEmailExists  = errors.New("E-mail já cadastrado")
+	ErrCPFExists    = errors.New("CPF já cadastrado")
 )
 
 func CreateUser(user *models.User) error {
+	if existingUser, _ := repository.FindUserByEmail(user.Email); existingUser != nil {
+		return ErrEmailExists
+	}
+
+	if existingUser, _ := repository.FindUserByCPF(user.CPF); existingUser != nil {
+		return ErrCPFExists
+	}
+
 	if !isValidPassword(user.Password) {
 		return ErrWeakPassword
 	}
@@ -49,10 +59,7 @@ func isValidPassword(password string) bool {
 }
 
 func isValidCPF(cpf string) bool {
-	if len(cpf) != 11 {
-		return false
-	}
-	return true
+	return len(cpf) == 11
 }
 
 func formatCPF(cpf string) string {
