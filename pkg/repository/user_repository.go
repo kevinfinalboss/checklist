@@ -24,10 +24,10 @@ func FindUserByEmail(email string) (*models.User, error) {
 	return &user, nil
 }
 
-func FindUserByCPF(cpf string) (*models.User, error) {
+func FindUserByCPF(hashedCPF string) (*models.User, error) {
 	var user models.User
 	collection := connection.Client.Database("checklist-apps").Collection("users")
-	err := collection.FindOne(context.Background(), bson.M{"cpf": cpf}).Decode(&user)
+	err := collection.FindOne(context.Background(), bson.M{"cpf": hashedCPF}).Decode(&user)
 	if err != nil {
 		return nil, err
 	}
