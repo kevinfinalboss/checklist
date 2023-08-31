@@ -37,12 +37,13 @@ func CreateUser(user *models.User) error {
 		return ErrEmailExists
 	}
 
-	existingUserByCPF, _ := repository.FindUserByCPF(user.CPF)
+	hashedCPF, _ := bcrypt.GenerateFromPassword([]byte(formatCPF(user.CPF)), bcrypt.DefaultCost)
+
+	existingUserByCPF, _ := repository.FindUserByCPF(string(hashedCPF))
 	if existingUserByCPF != nil {
 		return ErrCPFExists
 	}
 
-	hashedCPF, _ := bcrypt.GenerateFromPassword([]byte(formatCPF(user.CPF)), bcrypt.DefaultCost)
 	hashedPassword, _ := bcrypt.GenerateFromPassword([]byte(user.Password), bcrypt.DefaultCost)
 
 	user.Password = string(hashedPassword)
