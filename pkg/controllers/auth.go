@@ -3,7 +3,6 @@ package controllers
 import (
 	"net/http"
 	"os"
-	"strings"
 	"time"
 
 	"github.com/dgrijalva/jwt-go"
@@ -12,11 +11,6 @@ import (
 	"github.com/kevinfinalboss/checklist-apps/pkg/repository"
 	"github.com/kevinfinalboss/checklist-apps/pkg/services"
 	"golang.org/x/crypto/bcrypt"
-)
-
-const (
-	ErrGeneratingToken    = "Erro ao gerar token"
-	ErrInvalidCredentials = "Credenciais inválidas"
 )
 
 type Claims struct {
@@ -31,7 +25,7 @@ func Login(c *gin.Context) {
 	if isValidUser(email, password) {
 		token, err := generateToken(email)
 		if err != nil {
-			c.JSON(http.StatusInternalServerError, gin.H{"error": ErrGeneratingToken})
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "Erro ao gerar token"})
 			return
 		}
 
@@ -46,33 +40,12 @@ func Login(c *gin.Context) {
 func Register(c *gin.Context) {
 	var user models.User
 	if err := c.ShouldBindJSON(&user); err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
-		return
-	}
-
-	missingFields := []string{}
-	fieldMap := map[string]string{
-		"Name":      user.Name,
-		"Password":  user.Password,
-		"Email":     user.Email,
-		"CPF":       user.CPF,
-		"BirthDate": user.BirthDate,
-		"Address":   user.Address,
-	}
-
-	for fieldName, value := range fieldMap {
-		if value == "" {
-			missingFields = append(missingFields, fieldName)
-		}
-	}
-
-	if len(missingFields) > 0 {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "Campos obrigatórios faltando: " + strings.Join(missingFields, ", ")})
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Dados inválidos no corpo da requisição: " + err.Error()})
 		return
 	}
 
 	if err := services.CreateUser(&user); err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"error": "Erro ao criar usuário"})
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
 
