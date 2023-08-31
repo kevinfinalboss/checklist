@@ -20,6 +20,9 @@ func SetupRouter() *gin.Engine {
 	r.GET("/login", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "login.html", nil)
 	})
+
+	r.POST("/register", controllers.Register)
+
 	r.POST("/login", controllers.Login)
 
 	authorized := r.Group("/")
