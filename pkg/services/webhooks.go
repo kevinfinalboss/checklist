@@ -16,7 +16,7 @@ type DiscordWebhook struct {
 	Embeds []models.Embed `json:"embeds"`
 }
 
-func SendDiscordWebhook(title, description string) error {
+func SendDiscordWebhook(title, description string, fields []models.EmbedField) error {
 	webhookURL := viper.GetString("webhooks.discord")
 	if webhookURL == "" {
 		return fmt.Errorf("Webhook URL não configurada")
@@ -27,15 +27,18 @@ func SendDiscordWebhook(title, description string) error {
 		Description: description,
 		Color:       16711680,
 		Footer: &models.Footer{
-			Text: "CheckList API - Error Notifier",
+			Text: "AuthAPI - Notifier",
 		},
+		Image: &models.Image{
+			URL: "https://github.com/kevinfinalboss/StoreOps/blob/master/screenshots/Logo.jpg?raw=true",
+		},
+		Thumbnail: &models.Thumbnail{
+			URL: "https://github.com/kevinfinalboss/StoreOps/blob/master/screenshots/Logo.jpg?raw=true",
+		},
+		Fields: fields,
 	}
 
-	payload := DiscordWebhook{
-		Embeds: []models.Embed{embed},
-	}
-
-	jsonPayload, err := json.Marshal(payload)
+	jsonPayload, err := json.Marshal(DiscordWebhook{Embeds: []models.Embed{embed}})
 	if err != nil {
 		return err
 	}
