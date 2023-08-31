@@ -38,6 +38,25 @@ func Login(c *gin.Context) {
 	c.Redirect(http.StatusSeeOther, "/login?invalid_credentials=true")
 }
 
+func validateUserFields(user *models.User) []string {
+	fields := map[string]string{
+		"Name":      user.Name,
+		"Email":     user.Email,
+		"Password":  user.Password,
+		"CPF":       user.CPF,
+		"BirthDate": user.BirthDate,
+		"Address":   user.Address,
+	}
+
+	missingFields := []string{}
+	for field, value := range fields {
+		if value == "" {
+			missingFields = append(missingFields, field)
+		}
+	}
+	return missingFields
+}
+
 func Register(c *gin.Context) {
 	var user models.User
 	if err := c.ShouldBindJSON(&user); err != nil {
@@ -45,26 +64,7 @@ func Register(c *gin.Context) {
 		return
 	}
 
-	missingFields := []string{}
-	if user.Name == "" {
-		missingFields = append(missingFields, "Name")
-	}
-	if user.Email == "" {
-		missingFields = append(missingFields, "Email")
-	}
-	if user.Password == "" {
-		missingFields = append(missingFields, "Password")
-	}
-	if user.CPF == "" {
-		missingFields = append(missingFields, "CPF")
-	}
-	if user.BirthDate == "" {
-		missingFields = append(missingFields, "BirthDate")
-	}
-	if user.Address == "" {
-		missingFields = append(missingFields, "Address")
-	}
-
+	missingFields := validateUserFields(&user)
 	if len(missingFields) > 0 {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "Campos obrigatórios faltando: " + strings.Join(missingFields, ", ")})
 		return
