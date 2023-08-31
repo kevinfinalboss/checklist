@@ -40,12 +40,18 @@ func authorizedRoutes(r *gin.Engine) {
 	authorized := r.Group("/")
 	authorized.Use(middlewares.AuthMiddleware())
 	{
+		authorized.GET("/home", homePage)
+
 		authorized.GET("/docs", redirectToDocs)
 		authorized.GET("/docs/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
+
 		authorized.GET("/diag/health", controllers.HealthCheck)
 		authorized.GET("/test/panic", testPanic)
-		authorized.GET("/home", homePage)
+
 		authorized.GET("/user/:cpf", controllers.GetUserByCPF)
+		authorized.GET("/user/cpf/:cpf", controllers.GetUserByCPF)
+		authorized.GET("/user/email/:email", controllers.GetUserByEmail)
+		authorized.GET("/user/all", controllers.GetUserAll)
 	}
 }
 
