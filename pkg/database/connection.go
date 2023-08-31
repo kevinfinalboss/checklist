@@ -32,17 +32,24 @@ func Connect() error {
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
 
-	client, err := mongo.Connect(ctx, clientOptions)
+	var err error
+	for i := 0; i < 3; i++ { 
+		Client, err = mongo.Connect(ctx, clientOptions)
+		if err == nil {
+			break
+		}
+		time.Sleep(2 * time.Second)
+	}
+
 	if err != nil {
 		return errors.New("Erro ao conectar ao MongoDB: " + err.Error())
 	}
 
-	err = client.Ping(ctx, readpref.Primary())
+	err = Client.Ping(ctx, readpref.Primary())
 	if err != nil {
 		return errors.New("Erro ao fazer ping no MongoDB: " + err.Error())
 	}
 
-	Client = client
 	utils.Logger.Info("Conectado ao MongoDB com sucesso!")
 	return nil
 }
