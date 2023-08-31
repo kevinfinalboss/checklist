@@ -51,23 +51,19 @@ func Register(c *gin.Context) {
 	}
 
 	missingFields := []string{}
-	if user.Name == "" {
-		missingFields = append(missingFields, "Name")
+	fieldMap := map[string]string{
+		"Name":      user.Name,
+		"Password":  user.Password,
+		"Email":     user.Email,
+		"CPF":       user.CPF,
+		"BirthDate": user.BirthDate,
+		"Address":   user.Address,
 	}
-	if user.Password == "" {
-		missingFields = append(missingFields, "Password")
-	}
-	if user.Email == "" {
-		missingFields = append(missingFields, "Email")
-	}
-	if user.CPF == "" {
-		missingFields = append(missingFields, "CPF")
-	}
-	if user.BirthDate == "" {
-		missingFields = append(missingFields, "BirthDate")
-	}
-	if user.Address == "" {
-		missingFields = append(missingFields, "Address")
+
+	for fieldName, value := range fieldMap {
+		if value == "" {
+			missingFields = append(missingFields, fieldName)
+		}
 	}
 
 	if len(missingFields) > 0 {
