@@ -53,6 +53,12 @@ func CreateUser(user *models.User) error {
 	return repository.CreateUser(user)
 }
 
+func GetUserByCPF(cpf string) (*models.User, error) {
+	hash := sha256.Sum256([]byte(cpf))
+	hashedCPF := hex.EncodeToString(hash[:])
+	return repository.FindUserByCPF(hashedCPF)
+}
+
 func isValidPassword(password string) bool {
 	hasUpper := strings.ContainsAny(password, "ABCDEFGHIJKLMNOPQRSTUVWXYZ")
 	hasLower := strings.ContainsAny(password, "abcdefghijklmnopqrstuvwxyz")
