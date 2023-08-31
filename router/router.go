@@ -16,7 +16,7 @@ func SetupRouter() *gin.Engine {
 
 	r.Use(middlewares.ErrorHandler())
 
-	r.LoadHTMLGlob("./templates/**/*")
+	r.LoadHTMLGlob("./templates/*.html")
 
 	r.Static("/assets", "./assets")
 	r.Static("/emails", "./emails")
