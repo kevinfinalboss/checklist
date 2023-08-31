@@ -59,6 +59,14 @@ func GetUserByCPF(cpf string) (*models.User, error) {
 	return repository.FindUserByCPF(hashedCPF)
 }
 
+func GetUserByEmail(email string) (*models.User, error) {
+	return repository.FindUserByEmail(email)
+}
+
+func GetAllUsers() ([]models.User, error) {
+	return repository.FindAllUsers()
+}
+
 func isValidPassword(password string) bool {
 	hasUpper := strings.ContainsAny(password, "ABCDEFGHIJKLMNOPQRSTUVWXYZ")
 	hasLower := strings.ContainsAny(password, "abcdefghijklmnopqrstuvwxyz")
