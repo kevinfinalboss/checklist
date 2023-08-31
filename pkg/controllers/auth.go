@@ -3,6 +3,7 @@ package controllers
 import (
 	"net/http"
 	"os"
+	"strings"
 	"time"
 
 	"github.com/dgrijalva/jwt-go"
@@ -49,8 +50,28 @@ func Register(c *gin.Context) {
 		return
 	}
 
-	if user.Name == "" || user.Email == "" || user.Password == "" || user.ConfirmPassword == "" || user.CPF == "" || user.BirthDate == "" || user.Address == "" {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "Todos os campos são obrigatórios"})
+	missingFields := []string{}
+	if user.Name == "" {
+		missingFields = append(missingFields, "Name")
+	}
+	if user.Password == "" {
+		missingFields = append(missingFields, "Password")
+	}
+	if user.Email == "" {
+		missingFields = append(missingFields, "Email")
+	}
+	if user.CPF == "" {
+		missingFields = append(missingFields, "CPF")
+	}
+	if user.BirthDate == "" {
+		missingFields = append(missingFields, "BirthDate")
+	}
+	if user.Address == "" {
+		missingFields = append(missingFields, "Address")
+	}
+
+	if len(missingFields) > 0 {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Campos obrigatórios faltando: " + strings.Join(missingFields, ", ")})
 		return
 	}
 
