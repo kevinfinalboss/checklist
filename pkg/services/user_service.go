@@ -1,7 +1,8 @@
 package services
 
 import (
-	"crypto/sha256"
+	"crypto/rand"
+	"crypto/sha512"
 	"encoding/hex"
 	"errors"
 	"regexp"
@@ -38,8 +39,15 @@ func CreateUser(user *models.User) error {
 		return ErrEmailExists
 	}
 
-	hash := sha256.Sum256([]byte(user.CPF))
+	salt := make([]byte, 16)
+	_, err = rand.Read(salt)
+	if err != nil {
+		return err
+	}
+
+	hash := sha512.Sum512([]byte(user.CPF + hex.EncodeToString(salt)))
 	hashedCPF := hex.EncodeToString(hash[:])
+
 	existingUserByCPF, err := repository.FindUserByCPF(hashedCPF)
 	if err == nil && existingUserByCPF != nil {
 		return ErrCPFExists
