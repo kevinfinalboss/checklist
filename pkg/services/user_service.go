@@ -39,12 +39,13 @@ func CreateUser(user *models.User) error {
 	}
 
 	hash := sha256.Sum256([]byte(user.CPF))
-	user.HashedCPFForCheck = hex.EncodeToString(hash[:])
-
-	existingUserByCPFCheck, err := repository.FindUserByHashedCPFForCheck(user.HashedCPFForCheck)
-	if err == nil && existingUserByCPFCheck != nil {
+	hashedCPF := hex.EncodeToString(hash[:])
+	existingUserByCPF, err := repository.FindUserByCPF(hashedCPF)
+	if err == nil && existingUserByCPF != nil {
 		return ErrCPFExists
 	}
+
+	user.CPF = hashedCPF
 
 	hashedPassword, _ := bcrypt.GenerateFromPassword([]byte(user.Password), bcrypt.DefaultCost)
 	user.Password = string(hashedPassword)
