@@ -1,13 +1,15 @@
 package controllers
 
 import (
-	"crypto/subtle"
 	"net/http"
 	"os"
 	"time"
 
 	"github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"
+	"github.com/kevinfinalboss/checklist-apps/pkg/models"
+	"github.com/kevinfinalboss/checklist-apps/pkg/repository"
+	"github.com/kevinfinalboss/checklist-apps/pkg/services"
 	"golang.org/x/crypto/bcrypt"
 )
 
@@ -17,25 +19,16 @@ const (
 )
 
 type Claims struct {
-	Username string `json:"username"`
+	Email string `json:"email"`
 	jwt.StandardClaims
 }
 
-// @Summary Realizar login do usuário
-// @Description Autentica o usuário com base no nome de usuário e senha fornecidos e define um cookie de autenticação
-// @Tags Autenticação
-// @Produce  json
-// @Param   username formData string true "Nome de usuário"
-// @Param   password formData string true "Senha"
-// @Success 301 {string} string "Redireciona para a página inicial com sucesso no login"
-// @Failure 303 {string} string "Redireciona para a página de login com credenciais inválidas"
-// @Router /login [post]
 func Login(c *gin.Context) {
-	username := c.PostForm("username")
+	email := c.PostForm("email")
 	password := c.PostForm("password")
 
-	if isValidUser(username, password) {
-		token, err := generateToken(username)
+	if isValidUser(email, password) {
+		token, err := generateToken(email)
 		if err != nil {
 			c.JSON(http.StatusInternalServerError, gin.H{"error": ErrGeneratingToken})
 			return
@@ -49,17 +42,33 @@ func Login(c *gin.Context) {
 	c.Redirect(http.StatusSeeOther, "/login?invalid_credentials=true")
 }
 
-func isValidUser(username, password string) bool {
-	masterUsername := os.Getenv("USER_MASTER")
-	masterPassword := os.Getenv("PASSWORD_MASTER")
+func Register(c *gin.Context) {
+	var user models.User
+	if err := c.ShouldBindJSON(&user); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
 
-	hashedPassword, err := bcrypt.GenerateFromPassword([]byte(masterPassword), bcrypt.DefaultCost)
+	if user.Name == "" || user.Email == "" || user.Password == "" || user.ConfirmPassword == "" || user.CPF == "" || user.BirthDate == "" || user.Address == "" {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Todos os campos são obrigatórios"})
+		return
+	}
+
+	if err := services.CreateUser(&user); err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Erro ao criar usuário"})
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{"message": "Usuário criado com sucesso"})
+}
+
+func isValidUser(email, password string) bool {
+	user, err := repository.FindUserByEmail(email)
 	if err != nil {
 		return false
 	}
 
-	return subtle.ConstantTimeCompare([]byte(username), []byte(masterUsername)) == 1 &&
-		bcrypt.CompareHashAndPassword(hashedPassword, []byte(password)) == nil
+	return bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(password)) == nil
 }
 
 func setCookie(w http.ResponseWriter, token string) {
@@ -74,10 +83,10 @@ func setCookie(w http.ResponseWriter, token string) {
 	})
 }
 
-func generateToken(username string) (string, error) {
+func generateToken(email string) (string, error) {
 	expirationTime := time.Now().Add(24 * time.Hour)
 	claims := &Claims{
-		Username: username,
+		Email: email,
 		StandardClaims: jwt.StandardClaims{
 			ExpiresAt: expirationTime.Unix(),
 		},
