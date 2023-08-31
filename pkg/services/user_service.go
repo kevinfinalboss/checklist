@@ -50,7 +50,19 @@ func CreateUser(user *models.User) error {
 
 	hashedPassword, _ := bcrypt.GenerateFromPassword([]byte(user.Password), bcrypt.DefaultCost)
 	user.Password = string(hashedPassword)
-	return repository.CreateUser(user)
+
+	err = repository.CreateUser(user)
+	if err != nil {
+		return err
+	}
+
+	smsMessage := "Sua conta foi criada com sucesso!"
+	err = SendSms(user.TelephoneNumber, smsMessage)
+	if err != nil {
+		return errors.New("Usuário criado, mas falha ao enviar SMS: " + err.Error())
+	}
+
+	return nil
 }
 
 func GetUserByCPF(cpf string) (*models.User, error) {
