@@ -11,5 +11,4 @@ type User struct {
 	CPF             string             `bson:"cpf"`
 	BirthDate       string             `bson:"birthDate"`
 	Address         string             `bson:"address"`
-	CPFSalt         string             `bson:"cpfSalt"`
 }
