@@ -33,16 +33,16 @@ func CreateUser(user *models.User) error {
 		return ErrInvalidCPF
 	}
 
-	existingUserByEmail, _ := repository.FindUserByEmail(user.Email)
-	if existingUserByEmail != nil {
+	existingUserByEmail, err := repository.FindUserByEmail(user.Email)
+	if err == nil && existingUserByEmail != nil {
 		return ErrEmailExists
 	}
 
 	hash := sha256.Sum256([]byte(user.CPF))
 	user.HashedCPFForCheck = hex.EncodeToString(hash[:])
-	existingUserByCPFCheck, _ := repository.FindUserByHashedCPFForCheck(user.HashedCPFForCheck)
 
-	if existingUserByCPFCheck != nil {
+	existingUserByCPFCheck, err := repository.FindUserByHashedCPFForCheck(user.HashedCPFForCheck)
+	if err == nil && existingUserByCPFCheck != nil {
 		return ErrCPFExists
 	}
 
