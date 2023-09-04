@@ -4,9 +4,19 @@ import (
 	"crypto/aes"
 	"crypto/cipher"
 	"encoding/base64"
+	"fmt"
 )
 
-var secretKey = []byte("SMxP8/GDSrfMjrBxaalq7aIxknlUPwZb8TSFCy7uVZY=")
+var encodedSecretKey = "SMxP8/GDSrfMjrBxaalq7aIxknlUPwZb8TSFCy7uVZY="
+var secretKey []byte
+
+func init() {
+	var err error
+	secretKey, err = base64.StdEncoding.DecodeString(encodedSecretKey)
+	if err != nil {
+		fmt.Println("Error decoding secret key:", err)
+	}
+}
 
 func Encrypt(text string) (string, error) {
 	block, err := aes.NewCipher(secretKey)
