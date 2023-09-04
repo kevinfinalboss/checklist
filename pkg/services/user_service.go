@@ -34,6 +34,12 @@ func CreateUser(user *models.User) error {
 		return ErrInvalidCPF
 	}
 
+	encryptedCPF, err := Encrypt(user.CPF)
+	if err != nil {
+		return err
+	}
+	user.CPF = encryptedCPF
+
 	existingUserByEmail, err := repository.FindUserByEmail(user.Email)
 	if err == nil && existingUserByEmail != nil {
 		return ErrEmailExists
@@ -95,9 +101,20 @@ func CreateUser(user *models.User) error {
 }
 
 func GetUserByCPF(cpf string) (*models.User, error) {
-	hash := sha256.Sum256([]byte(cpf))
-	hashedCPF := hex.EncodeToString(hash[:])
-	return repository.FindUserByCPF(hashedCPF)
+	encryptedCPF, err := Encrypt(cpf)
+	if err != nil {
+		return nil, err
+	}
+	user, err := repository.FindUserByCPF(encryptedCPF)
+	if err != nil {
+		return nil, err
+	}
+	decryptedCPF, err := Decrypt(user.CPF)
+	if err != nil {
+		return nil, err
+	}
+	user.CPF = decryptedCPF
+	return user, nil
 }
 
 func GetUserByEmail(email string) (*models.User, error) {
