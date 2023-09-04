@@ -101,19 +101,13 @@ func CreateUser(user *models.User) error {
 }
 
 func GetUserByCPF(cpf string) (*models.User, error) {
-	encryptedCPF, err := Encrypt(cpf)
+	hash := sha256.Sum256([]byte(cpf))
+	hashedCPF := hex.EncodeToString(hash[:])
+
+	user, err := repository.FindUserByCPF(hashedCPF)
 	if err != nil {
 		return nil, err
 	}
-	user, err := repository.FindUserByCPF(encryptedCPF)
-	if err != nil {
-		return nil, err
-	}
-	decryptedCPF, err := Decrypt(user.CPF)
-	if err != nil {
-		return nil, err
-	}
-	user.CPF = decryptedCPF
 	return user, nil
 }
 
