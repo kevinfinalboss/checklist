@@ -101,14 +101,22 @@ func CreateUser(user *models.User) error {
 }
 
 func GetUserByCPF(cpf string) (*models.User, error) {
-	hash := sha256.Sum256([]byte(cpf))
-	hashedCPF := hex.EncodeToString(hash[:])
-
-	user, err := repository.FindUserByCPF(hashedCPF)
+	users, err := repository.FindAllUsers()
 	if err != nil {
 		return nil, err
 	}
-	return user, nil
+	for _, user := range users {
+		decryptedCPF, err := Decrypt(user.CPF)
+		if err != nil {
+			return nil, err
+		}
+
+		if decryptedCPF == cpf {
+			return &user, nil
+		}
+	}
+
+	return nil, errors.New("Usuário não encontrado")
 }
 
 func GetUserByEmail(email string) (*models.User, error) {
