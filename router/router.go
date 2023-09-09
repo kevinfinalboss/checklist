@@ -48,8 +48,6 @@ func authorizedRoutes(r *gin.Engine) {
 		authorized.GET("/diag/health", controllers.HealthCheck)
 		authorized.GET("/test/panic", testPanic)
 
-		authorized.GET("/user/:cpf", controllers.GetUserByCPF)
-		authorized.GET("/user/cpf/:cpf", controllers.GetUserByCPF)
 		authorized.GET("/user/email/:email", controllers.GetUserByEmail)
 		authorized.GET("/user/all", controllers.GetUserAll)
 	}

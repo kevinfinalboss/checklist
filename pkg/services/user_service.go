@@ -100,25 +100,6 @@ func CreateUser(user *models.User) error {
 	return nil
 }
 
-func GetUserByCPF(cpf string) (*models.User, error) {
-	users, err := repository.FindAllUsers()
-	if err != nil {
-		return nil, err
-	}
-	for _, user := range users {
-		decryptedCPF, err := Decrypt(user.CPF)
-		if err != nil {
-			return nil, err
-		}
-
-		if decryptedCPF == cpf {
-			return &user, nil
-		}
-	}
-
-	return nil, errors.New("Usuário não encontrado")
-}
-
 func GetUserByEmail(email string) (*models.User, error) {
 	return repository.FindUserByEmail(email)
 }
