@@ -6,21 +6,9 @@ import (
 	"errors"
 	"net/http"
 	"os"
+
+	"github.com/kevinfinalboss/checklist-apps/pkg/models"
 )
-
-type SmsRequest struct {
-	Key    string `json:"key"`
-	Type   int    `json:"type"`
-	Number string `json:"number"`
-	Msg    string `json:"msg"`
-}
-
-type SmsResponse struct {
-	Situacao  string `json:"situacao"`
-	Codigo    string `json:"codigo"`
-	ID        string `json:"id"`
-	Descricao string `json:"descricao"`
-}
 
 func SendSms(number, message string) error {
 	smsKey := os.Getenv("SMS_API_KEY")
@@ -28,14 +16,14 @@ func SendSms(number, message string) error {
 		return errors.New("SMS API key is missing")
 	}
 
-	smsData := SmsRequest{
+	smsData := models.SmsRequest{
 		Key:    smsKey,
 		Type:   9,
 		Number: number,
 		Msg:    message,
 	}
 
-	jsonData, err := json.Marshal([]SmsRequest{smsData})
+	jsonData, err := json.Marshal([]models.SmsRequest{smsData})
 	if err != nil {
 		return err
 	}
@@ -46,7 +34,7 @@ func SendSms(number, message string) error {
 	}
 	defer resp.Body.Close()
 
-	var smsResp []SmsResponse
+	var smsResp []models.SmsResponse
 	if err := json.NewDecoder(resp.Body).Decode(&smsResp); err != nil {
 		return err
 	}
