@@ -28,6 +28,16 @@ func Login(c *gin.Context) {
 			return
 		}
 
+		emailConfig := services.LoadEmailConfig()
+		clientIP := getClientIP(c)
+		subject := "Registro de Login"
+		message := "Você fez login a partir do IP: " + clientIP
+		err = services.SendLoginNotification(emailConfig, subject, message)
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "Erro ao enviar e-mail de notificação"})
+			return
+		}
+
 		services.SetCookie(c.Writer, token)
 		c.Redirect(http.StatusMovedPermanently, "/home?login_success=true")
 		return
@@ -89,4 +99,9 @@ func isValidUser(email, password string) bool {
 	}
 
 	return bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(password)) == nil
+}
+
+func getClientIP(c *gin.Context) string {
+	clientIP := c.ClientIP()
+	return clientIP
 }
