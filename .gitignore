@@ -30,6 +30,6 @@ go.work
 # End of https://www.toptal.com/developers/gitignore/api/dotenv,go
 checklist.zip
 logs/log-16-08-2023.log
-.log
+.logs
 logs/log-30-08-2023.log
-logs/log-17-08-2023.log
+./logs
