@@ -17,9 +17,10 @@ func ErrorHandler() gin.HandlerFunc {
 				stackTrace := string(debug.Stack())
 				errMsg := fmt.Sprintf("ERROR recovered: %v\n%s", err, stackTrace)
 
+				emailConfig := services.LoadEmailConfig()
 				subject := "Erro Interno no Servidor"
 				body := "Ocorreu um erro no servidor: " + errMsg
-				services.SendEmail(subject, body)
+				services.SendErrorNotification(emailConfig, subject, body)
 
 				title := "Erro Interno no Servidor"
 				description := "Ocorreu um erro no servidor."
