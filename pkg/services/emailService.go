@@ -34,6 +34,7 @@ func sendEmailWithTemplate(config EmailConfig, subject, message, templateName st
 
 	tmpl, err := template.ParseFiles(templatePath)
 	if err != nil {
+		fmt.Printf("Erro ao analisar o template: %v\n", err)
 		return err
 	}
 
@@ -44,6 +45,7 @@ func sendEmailWithTemplate(config EmailConfig, subject, message, templateName st
 		Message: message,
 	}
 	if err := tmpl.Execute(&body, data); err != nil {
+		fmt.Printf("Erro ao executar o template: %v\n", err)
 		return err
 	}
 
@@ -52,7 +54,12 @@ func sendEmailWithTemplate(config EmailConfig, subject, message, templateName st
 
 	auth := smtp.PlainAuth("", config.From, config.Password, config.Host)
 
-	return smtp.SendMail(config.Host+":"+config.Port, auth, config.From, []string{config.To}, []byte(msg))
+	err = smtp.SendMail(config.Host+":"+config.Port, auth, config.From, []string{config.To}, []byte(msg))
+	if err != nil {
+		fmt.Printf("Erro ao enviar e-mail: %v\n", err)
+	}
+
+	return err
 }
 
 func SendErrorNotification(config EmailConfig, subject, errorMessage string) error {

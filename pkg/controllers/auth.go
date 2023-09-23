@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"fmt"
 	"net/http"
 	"strings"
 
@@ -28,15 +29,16 @@ func Login(c *gin.Context) {
 			return
 		}
 
-		emailConfig := services.LoadEmailConfig()
-		clientIP := getClientIP(c)
-		subject := "Registro de Login"
-		message := "Você fez login a partir do IP: " + clientIP
-		err = services.SendLoginNotification(emailConfig, subject, message)
-		if err != nil {
-			c.JSON(http.StatusInternalServerError, gin.H{"error": "Erro ao enviar e-mail de notificação"})
-			return
-		}
+		go func() {
+			emailConfig := services.LoadEmailConfig()
+			clientIP := getClientIP(c)
+			subject := "Registro de Login"
+			message := "Você fez login a partir do IP: " + clientIP
+			err = services.SendLoginNotification(emailConfig, subject, message)
+			if err != nil {
+				fmt.Printf("Erro ao enviar e-mail de notificação: %v\n", err)
+			}
+		}()
 
 		services.SetCookie(c.Writer, token)
 		c.Redirect(http.StatusMovedPermanently, "/home?login_success=true")
