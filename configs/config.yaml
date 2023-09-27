@@ -5,4 +5,4 @@ smtp:
   port: 587
 
 webhooks:
-  discord: https://discord.com/api/webhooks/1103840164062707762/hmu05z5RrS4ya4QTHBKT7XxSaCfS1JxoACWZ750lzje0sZpejBY_6tu0AzK1pAshzJ4m
+  discord: https://discord.com/api/webhooks/1155327876602810388/-VRQkaBGOwkIHAtmOX5SIL55B7FCXsqsNbj4Bz3PrEvP4qoNHKNirW8cF-fdTaRv12_0
