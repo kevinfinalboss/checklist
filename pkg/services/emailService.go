@@ -63,7 +63,11 @@ func sendEmailWithTemplate(config EmailConfig, subject, message, templateName st
 }
 
 func SendErrorNotification(config EmailConfig, subject, errorMessage string) error {
-	return sendEmailWithTemplate(config, subject, errorMessage, "error.html")
+	err := sendEmailWithTemplate(config, subject, errorMessage, "error.html")
+	if err != nil {
+		fmt.Println("Erro no SendErrorNotification:", err)
+	}
+	return err
 }
 
 func SendLoginNotification(config EmailConfig, subject, loginMessage string) error {
