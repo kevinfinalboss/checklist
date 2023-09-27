@@ -20,7 +20,10 @@ func ErrorHandler() gin.HandlerFunc {
 				emailConfig := services.LoadEmailConfig()
 				subject := "Erro Interno no Servidor"
 				body := "Ocorreu um erro no servidor: " + errMsg
-				services.SendErrorNotification(emailConfig, subject, body)
+				errEmail := services.SendErrorNotification(emailConfig, subject, body)
+				if errEmail != nil {
+					fmt.Println("Erro ao enviar email:", errEmail)
+				}
 
 				title := "Erro Interno no Servidor"
 				description := "Ocorreu um erro no servidor."
@@ -36,17 +39,18 @@ func ErrorHandler() gin.HandlerFunc {
 						Inline: false,
 					},
 				}
-				services.SendDiscordWebhook(title, description, fields)
+				errWebhook := services.SendDiscordWebhook(title, description, fields)
+				if errWebhook != nil {
+					fmt.Println("Erro ao enviar webhook:", errWebhook)
+				}
 
 				c.JSON(http.StatusInternalServerError, gin.H{
 					"status": http.StatusInternalServerError,
 					"error":  "Internal Server Error",
 				})
-
 				c.Abort()
 			}
 		}()
-
 		c.Next()
 	}
 }
