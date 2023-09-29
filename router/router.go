@@ -32,8 +32,11 @@ func publicRoutes(r *gin.Engine) {
 	r.GET("/login", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "login.html", nil)
 	})
-	r.POST("/register", controllers.Register)
-	r.POST("/login", controllers.Login)
+	r.GET("/register", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "register.html", nil)
+	})
+	r.POST("/user/register", controllers.Register)
+	r.POST("/user/login", controllers.Login)
 }
 
 func authorizedRoutes(r *gin.Engine) {
