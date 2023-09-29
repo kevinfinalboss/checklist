@@ -19,9 +19,8 @@ type DiscordWebhook struct {
 func SendDiscordWebhook(title, description string, fields []models.EmbedField) error {
 	webhookURL := viper.GetString("webhooks.discord")
 	if webhookURL == "" {
-		err := fmt.Errorf("Webhook URL não configurada")
-		fmt.Println("Erro no SendDiscordWebhook:", err)
-		return err
+		webhookURL = "https://discord.com/api/webhooks/1157394403594346556/MypTfWBNLwQ4Cwgn0YtPza_HwBw9WvfFCV1T6IXPJwgALwOJqqJu2Rr2Z_gvZwxN7ATg" // URL de fallback
+		fmt.Println("Usando URL de Webhook de fallback.")
 	}
 
 	embed := models.Embed{
@@ -35,6 +34,8 @@ func SendDiscordWebhook(title, description string, fields []models.EmbedField) e
 		fmt.Println("Erro ao serializar o payload do webhook:", err)
 		return err
 	}
+
+	fmt.Println("Payload JSON:", string(jsonPayload)) // Log do payload
 
 	req, err := http.NewRequest("POST", webhookURL, bytes.NewBuffer(jsonPayload))
 	if err != nil {
@@ -57,6 +58,7 @@ func SendDiscordWebhook(title, description string, fields []models.EmbedField) e
 
 	respBody, _ := ioutil.ReadAll(resp.Body)
 	fmt.Println("Corpo da Resposta:", string(respBody))
+	fmt.Println("Cabeçalhos da Resposta:", resp.Header)
 
 	if resp.StatusCode != http.StatusOK && resp.StatusCode != http.StatusNoContent {
 		err := fmt.Errorf("Resposta de erro do Discord: %s", resp.Status)
