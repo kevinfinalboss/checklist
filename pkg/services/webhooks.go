@@ -23,10 +23,21 @@ func SendDiscordWebhook(title, description string, fields []models.EmbedField) e
 		fmt.Println("Usando URL de Webhook de fallback.")
 	}
 
+	if len(title) > 256 {
+		title = title[:256]
+	}
+	if len(description) > 2048 {
+		description = description[:2048]
+	}
+	if len(fields) > 25 {
+		fields = fields[:25]
+	}
+
 	embed := models.Embed{
 		Title:       title,
 		Description: description,
 		Fields:      fields,
+		Color:       0x3498db,
 	}
 
 	jsonPayload, err := json.Marshal(DiscordWebhook{Embeds: []models.Embed{embed}})
@@ -34,8 +45,6 @@ func SendDiscordWebhook(title, description string, fields []models.EmbedField) e
 		fmt.Println("Erro ao serializar o payload do webhook:", err)
 		return err
 	}
-
-	fmt.Println("Payload JSON:", string(jsonPayload)) // Log do payload
 
 	req, err := http.NewRequest("POST", webhookURL, bytes.NewBuffer(jsonPayload))
 	if err != nil {
@@ -58,7 +67,6 @@ func SendDiscordWebhook(title, description string, fields []models.EmbedField) e
 
 	respBody, _ := ioutil.ReadAll(resp.Body)
 	fmt.Println("Corpo da Resposta:", string(respBody))
-	fmt.Println("Cabeçalhos da Resposta:", resp.Header)
 
 	if resp.StatusCode != http.StatusOK && resp.StatusCode != http.StatusNoContent {
 		err := fmt.Errorf("Resposta de erro do Discord: %s", resp.Status)
