@@ -1,6 +1,22 @@
-
 document.addEventListener("DOMContentLoaded", function() {
     const form = document.getElementById("register-form");
+
+    function showNotification(message, color) {
+        const notification = document.getElementById('notification');
+        notification.textContent = message;
+        notification.style.backgroundColor = color;
+        notification.style.animation = 'fadein 3s, fadeout 1s 3s';
+        notification.style.display = 'block';
+        setTimeout(() => {
+            notification.style.display = 'none';
+        }, 4000);
+    }
+
+    function redirectToLogin() {
+        setTimeout(() => {
+            window.location.href = '/login';
+        }, 3000);
+    }
 
     form.addEventListener("submit", async function(event) {
         event.preventDefault();
@@ -27,12 +43,16 @@ document.addEventListener("DOMContentLoaded", function() {
             if (response.ok) {
                 const data = await response.json();
                 console.log("User successfully registered:", data);
+                showNotification('Usuário criado com sucesso', 'green');
+                redirectToLogin();
             } else {
                 const data = await response.json();
                 console.log("Error registering user:", data);
+                showNotification(data.error, 'red');
             }
         } catch (error) {
             console.log("There was a problem sending the request:", error);
+            showNotification('Houve um problema ao enviar a solicitação', 'red');
         }
     });
 });
