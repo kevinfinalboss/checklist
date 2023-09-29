@@ -18,6 +18,17 @@ type Claims struct {
 	jwt.StandardClaims
 }
 
+// Login godoc
+//
+//	@Summary		Autenticar usuário
+//	@Description	Autentica um usuário
+//	@Tags			autenticação
+//	@Accept			json
+//	@Produce		json
+//	@Param			email		formData	string	true	"E-mail"
+//	@Param			password	formData	string	true	"Senha"
+//	@Success		302
+//	@Router			/login [post]
 func Login(c *gin.Context) {
 	email := c.PostForm("email")
 	password := c.PostForm("password")
@@ -81,6 +92,14 @@ func validateUserFields(user *models.User) []string {
 	return missingFields
 }
 
+// Register godoc
+//
+//	@Summary		Registrar um novo usuário
+//	@Description	Registra um novo usuário
+//	@Tags			autenticação
+//	@Accept			json
+//	@Produce		json
+//	@Router			/user/register [post]
 func Register(c *gin.Context) {
 	var user models.User
 	if err := c.ShouldBindJSON(&user); err != nil {

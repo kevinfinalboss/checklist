@@ -35,6 +35,90 @@ const docTemplate = `{
                     }
                 }
             }
+        },
+        "/login": {
+            "post": {
+                "description": "Autentica um usuário",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "autenticação"
+                ],
+                "summary": "Autenticar usuário",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "E-mail",
+                        "name": "email",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Senha",
+                        "name": "password",
+                        "in": "formData",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "302": {
+                        "description": "Found"
+                    }
+                }
+            }
+        },
+        "/user/all": {
+            "get": {
+                "description": "Busca todas as informações dos usuários",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "usuário"
+                ],
+                "summary": "Buscar todos os usuários",
+                "responses": {}
+            }
+        },
+        "/user/email/{email}": {
+            "get": {
+                "description": "Busca as informações de um usuário pelo e-mail",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "usuário"
+                ],
+                "summary": "Buscar usuário por e-mail",
+                "responses": {}
+            }
+        },
+        "/user/register": {
+            "post": {
+                "description": "Registra um novo usuário",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "autenticação"
+                ],
+                "summary": "Registrar um novo usuário",
+                "responses": {}
+            }
         }
     }
 }`
