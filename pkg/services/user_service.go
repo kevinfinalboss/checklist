@@ -63,7 +63,7 @@ func CreateUser(user *models.User) error {
 		return err
 	}
 
-	//smsMessage := fmt.Sprintf("Olá, %s! Sua conta na KevinDev foi criada com sucesso!", user.Name)
+	// smsMessage := fmt.Sprintf("Olá, %s! Sua conta na KevinDev foi criada com sucesso!", user.Name)
 	//err = SendSms(user.TelephoneNumber, smsMessage)
 	//if err != nil {
 	//	return errors.New("Usuário criado, mas falha ao enviar SMS: " + err.Error())
