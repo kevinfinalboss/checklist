@@ -19,25 +19,15 @@ type DiscordWebhook struct {
 func SendDiscordWebhook(title, description string, fields []models.EmbedField) error {
 	webhookURL := viper.GetString("webhooks.discord")
 	if webhookURL == "" {
-		webhookURL = "https://discord.com/api/webhooks/1157394403594346556/MypTfWBNLwQ4Cwgn0YtPza_HwBw9WvfFCV1T6IXPJwgALwOJqqJu2Rr2Z_gvZwxN7ATg" // URL de fallback
-		fmt.Println("Usando URL de Webhook de fallback.")
-	}
-
-	if len(title) > 256 {
-		title = title[:256]
-	}
-	if len(description) > 2048 {
-		description = description[:2048]
-	}
-	if len(fields) > 25 {
-		fields = fields[:25]
+		err := fmt.Errorf("Webhook URL não configurada")
+		fmt.Println("Erro no SendDiscordWebhook:", err)
+		return err
 	}
 
 	embed := models.Embed{
 		Title:       title,
 		Description: description,
 		Fields:      fields,
-		Color:       0x3498db,
 	}
 
 	jsonPayload, err := json.Marshal(DiscordWebhook{Embeds: []models.Embed{embed}})
