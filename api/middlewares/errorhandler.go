@@ -2,8 +2,10 @@ package middlewares
 
 import (
 	"fmt"
+	"io/ioutil"
 	"net/http"
 	"runtime/debug"
+	"strings"
 
 	"github.com/gin-gonic/gin"
 	"github.com/kevinfinalboss/checklist-apps/pkg/models"
@@ -25,21 +27,23 @@ func ErrorHandler() gin.HandlerFunc {
 					fmt.Println("Erro ao enviar email:", errEmail)
 				}
 
+				errFileName := "error_log.txt"
+				ioutil.WriteFile(errFileName, []byte(errMsg), 0644)
+
+				lines := strings.Split(errMsg, "\n")
+				firstThreeLines := strings.Join(lines[:3], "\n")
+
 				title := "Erro Interno no Servidor"
 				description := "Ocorreu um erro no servidor."
 				fields := []models.EmbedField{
 					{
-						Name:   "Erro",
-						Value:  fmt.Sprintf("%v", err),
-						Inline: false,
-					},
-					{
-						Name:   "Stack Trace",
-						Value:  stackTrace,
+						Name:   "Erro Resumido",
+						Value:  firstThreeLines,
 						Inline: false,
 					},
 				}
-				errWebhook := services.SendDiscordWebhook(title, description, fields)
+
+				errWebhook := services.SendDiscordWebhookWithFile(title, description, fields, errFileName)
 				if errWebhook != nil {
 					fmt.Println("Erro ao enviar webhook:", errWebhook)
 				}
