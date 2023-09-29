@@ -2,7 +2,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     const form = document.getElementById("register-form");
 
-    form.addEventListener("submit", function(event) {
+    form.addEventListener("submit", async function(event) {
         event.preventDefault();
         const formData = {
             "Name": form["Name"].value,
@@ -15,7 +15,24 @@ document.addEventListener("DOMContentLoaded", function() {
             "Address": form["Address"].value
         };
 
-        // Aqui você pode adicionar o código para enviar esses dados ao seu servidor
-        console.log("User data to be sent:", formData);
+        try {
+            const response = await fetch('/user/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                console.log("User successfully registered:", data);
+            } else {
+                const data = await response.json();
+                console.log("Error registering user:", data);
+            }
+        } catch (error) {
+            console.log("There was a problem sending the request:", error);
+        }
     });
 });
