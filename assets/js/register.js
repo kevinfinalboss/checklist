@@ -42,16 +42,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
             if (response.ok) {
                 const data = await response.json();
-                console.log("User successfully registered:", data);
                 showNotification('Usuário criado com sucesso', 'green');
                 redirectToLogin();
             } else {
                 const data = await response.json();
-                console.log("Error registering user:", data);
                 showNotification(data.error, 'red');
             }
         } catch (error) {
-            console.log("There was a problem sending the request:", error);
             showNotification('Houve um problema ao enviar a solicitação', 'red');
         }
     });
