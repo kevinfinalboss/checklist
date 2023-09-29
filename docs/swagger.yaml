@@ -14,4 +14,61 @@ paths:
       summary: Verificar a saúde da API
       tags:
       - Health Check
+  /login:
+    post:
+      consumes:
+      - application/json
+      description: Autentica um usuário
+      parameters:
+      - description: E-mail
+        in: formData
+        name: email
+        required: true
+        type: string
+      - description: Senha
+        in: formData
+        name: password
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "302":
+          description: Found
+      summary: Autenticar usuário
+      tags:
+      - autenticação
+  /user/all:
+    get:
+      consumes:
+      - application/json
+      description: Busca todas as informações dos usuários
+      produces:
+      - application/json
+      responses: {}
+      summary: Buscar todos os usuários
+      tags:
+      - usuário
+  /user/email/{email}:
+    get:
+      consumes:
+      - application/json
+      description: Busca as informações de um usuário pelo e-mail
+      produces:
+      - application/json
+      responses: {}
+      summary: Buscar usuário por e-mail
+      tags:
+      - usuário
+  /user/register:
+    post:
+      consumes:
+      - application/json
+      description: Registra um novo usuário
+      produces:
+      - application/json
+      responses: {}
+      summary: Registrar um novo usuário
+      tags:
+      - autenticação
 swagger: "2.0"
