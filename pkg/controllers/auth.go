@@ -44,7 +44,7 @@ func Login(c *gin.Context) {
 			emailConfig := services.LoadEmailConfig()
 			subject := "Registro de Login"
 			message := "Você fez login na sua conta. Se não foi você, por favor, entre em contato conosco imediatamente."
-			err = services.SendLoginNotification(emailConfig, subject, message)
+			err = services.SendLoginNotification(emailConfig, email, subject, message)
 			if err != nil {
 				fmt.Printf("Erro ao enviar e-mail de notificação: %v\n", err)
 			}
