@@ -29,12 +29,11 @@ func LoadEmailConfig() EmailConfig {
 	}
 }
 
-func sendEmailWithTemplate(config EmailConfig, subject, message, templateName string) error {
+func sendEmailWithTemplate(config EmailConfig, recipientEmail, subject, message, templateName string) error {
 	templatePath := filepath.Join("templates", "emails", templateName)
 
 	tmpl, err := template.ParseFiles(templatePath)
 	if err != nil {
-		fmt.Printf("Erro ao analisar o template: %v\n", err)
 		return err
 	}
 
@@ -45,31 +44,30 @@ func sendEmailWithTemplate(config EmailConfig, subject, message, templateName st
 		Message: message,
 	}
 	if err := tmpl.Execute(&body, data); err != nil {
-		fmt.Printf("Erro ao executar o template: %v\n", err)
 		return err
 	}
 
 	msg := fmt.Sprintf("From: %s\nTo: %s\nSubject: %s\nContent-Type: text/html; charset=\"utf-8\"\n\n%s",
-		config.From, config.To, subject, body.String())
+		config.From, recipientEmail, subject, body.String())
 
 	auth := smtp.PlainAuth("", config.From, config.Password, config.Host)
 
-	err = smtp.SendMail(config.Host+":"+config.Port, auth, config.From, []string{config.To}, []byte(msg))
+	err = smtp.SendMail(config.Host+":"+config.Port, auth, config.From, []string{recipientEmail}, []byte(msg))
 	if err != nil {
-		fmt.Printf("Erro ao enviar e-mail: %v\n", err)
+		return err
 	}
 
-	return err
+	return nil
 }
 
 func SendErrorNotification(config EmailConfig, subject, errorMessage string) error {
-	err := sendEmailWithTemplate(config, subject, errorMessage, "error.html")
+	err := sendEmailWithTemplate(config, config.To, subject, errorMessage, "error.html")
 	if err != nil {
 		fmt.Println("Erro no SendErrorNotification:", err)
 	}
 	return err
 }
 
-func SendLoginNotification(config EmailConfig, subject, loginMessage string) error {
-	return sendEmailWithTemplate(config, subject, loginMessage, "login_notify.html")
+func SendLoginNotification(config EmailConfig, recipientEmail, subject, loginMessage string) error {
+	return sendEmailWithTemplate(config, recipientEmail, subject, loginMessage, "login_notify.html")
 }
