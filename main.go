@@ -4,6 +4,7 @@ import (
 	"os"
 	"path/filepath"
 
+	"github.com/bwmarrin/discordgo"
 	"github.com/common-nighthawk/go-figure"
 	"github.com/fatih/color"
 	"github.com/gin-gonic/gin"
@@ -13,6 +14,22 @@ import (
 	"github.com/kevinfinalboss/checklist-apps/pkg/utils"
 	"github.com/kevinfinalboss/checklist-apps/router"
 )
+
+func startDiscordBot(token string) {
+	dg, err := discordgo.New("Bot " + token)
+	if err != nil {
+		utils.LogError(err, "Erro ao criar uma sessão do Discord")
+		return
+	}
+
+	err = dg.Open()
+	if err != nil {
+		utils.LogError(err, "Erro ao abrir uma conexão com o Discord")
+		return
+	}
+
+	utils.Logger.Info("Bot do Discord conectado!")
+}
 
 func main() {
 	utils.InitLogger()
@@ -55,6 +72,13 @@ func main() {
 		return
 	}
 	defer connection.Disconnect()
+
+	botToken := os.Getenv("DISCORD_BOT_TOKEN")
+	if botToken == "" {
+		utils.LogError(nil, "Token do bot do Discord não definido!")
+	} else {
+		go startDiscordBot(botToken)
+	}
 
 	utils.Logger.Infof("Servidor rodando na porta %s", port)
 
