@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notificação de Criação de Conta</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+        }
+        .notification-container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 30px;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.05);
+        }
+        .title {
+            color: #2C3E50;
+            margin-top: 0;
+            font-size: 30px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .subtitle {
+            color: #8e44ad;
+            font-size: 20px;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .message {
+            color: #333;
+            font-size: 18px;
+            line-height: 1.5;
+            text-align: center;
+        }
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            color: #999;
+            font-size: 14px;
+        }
+        hr {
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="notification-container">
+        <h1 class="title">Bem-vindo(a) à Checklist Apps!</h1>
+        <hr>
+        <h2 class="subtitle">Sua conta foi criada com sucesso</h2>
+        <p class="message">Olá, <strong>{{.UserName}}</strong>!<br> Sua conta foi criada em <strong>{{.CreatedTime}}</strong>. Estamos felizes em tê-lo conosco. Comece a explorar e aproveite todos os nossos recursos.</p>
+    </div>
+    <div class="footer">
+        Esta mensagem foi gerada automaticamente. Por favor, não responda a este email.
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+            
