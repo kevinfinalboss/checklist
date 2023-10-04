@@ -4,6 +4,7 @@ import (
 	"crypto/sha256"
 	"encoding/hex"
 	"errors"
+	"fmt"
 	"regexp"
 	"strings"
 	"time"
@@ -69,6 +70,12 @@ func CreateUser(user *models.User) error {
 	//	return errors.New("Usuário criado, mas falha ao enviar SMS: " + err.Error())
 	//}
 
+	emailConfig := LoadEmailConfig()
+	err = SendAccountCreationNotification(emailConfig, user.Email, user.Name)
+	if err != nil {
+		fmt.Println("Erro ao enviar notificação de criação de conta:", err)
+	}
+	
 	currentTime := time.Now()
 	formattedTime := currentTime.Format("02/01/2006 às 15:04")
 
